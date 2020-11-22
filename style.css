@@ -1,0 +1,15 @@
+:root {
+--pColor:     #00738e;
+--pLightColor:#4da2be;
+--pDarkColor: #004761;
+--pTextColor: #ffffff;
+}
+
+
+.me {
+  max-width:200px; width: 100%; height: auto;
+}
+
+.sosmed img{
+  max-width:32px; width: 100%; height: auto;
+}
