@@ -4,64 +4,83 @@
 <meta charset="utf-8">
 <meta name="Description" content="Ktupad MVC Framework by wawan sismadi">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<meta http-equiv="Cache-Control" content="public" max-age="31536000">
 
-<meta property="og:image" content="files/55.svg">
-<meta property="og:image:type" content="image/png">
-<meta property="og:image:width" content="1024">
-<meta property="og:image:height" content="1024">
-  
-<title>Wawan Sismadi</title>
-<link rel="shortcut icon" href="files/favicon.png">
-<link rel="stylesheet" type="text/css" href="https://ktupad.github.io/view/ktupad.css" async>
-<link rel="stylesheet" type="text/css" href="style.css" async>
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" type="text/css" href="blog.css" async>
+<link rel="stylesheet" type="text/css" href="modal.css" async>
+
+<title>ktupad</title>
 </head>
 <body>
-<div id="printarea" class="cetak hide"></div>
-<div id="depan" class="hide"></div>
-<main id="main" class="main">
-<div id="atas" class="navbar pDarkColor hide">
+
+<!-- <div id="aurora" class="aurora-bg  aurora-outer "><div class="aurora-inner"></div></div>
+<div class="auroral-stars"></div>
+-->
+
+
+<div id="navbar" class="hide">
+<div  class="page"><i class="logo kecil"></i></div>
+</div>
+<div id="modal" class="hide"></div>
+
+
+<div class = "row">
+
+<div class = "page ">
+
+<div class = "latar artikel pw" >
+<i class="logo besar" ></i>
+</div>
+
+<div class = "row artikel judul " >
+  <div class="row dd"></div>
+  <div class="row pw">Wawan Sismadi</div>
+</div>
+
+<div class = "row menu">
 <ul>
-<li style="float:left" class="accordion-menu" tabindex="0" >
-<i class="ico-burger btn-form"></i>
-<ul id="kiri" class="accordion pColor hide" style=" width:150px; height:100%; position:fixed; z-index:1; ">
-  <li><input type="checkbox" id="1s" > <label class="btn-h" for="1s" >Info</label><ul>
-  <li><input type="checkbox" id="2s" > <label class="btn-h" for="2s" >Ktupad-2.0</label></li></ul>
-</li>
-</ul>
-</li>
-<li style="float:left"><i class="ico ico-home" onclick="location.reload();"></i></li>
-<li style="float:left" id="li-kiri"   aria-hidden="true"></li>
-
-<li style="float:left" id="topmenu"   aria-hidden="true"></li>
-
-<li style="float:right" id="li-kanan"  aria-hidden="true">
-  <i class="ico-envelope"></i>
-<span id="badge" class="badge" data-badge="0"></span></li>
-
+<li><a onclick = "blog.goPage('home')" href="#">Home</a></li>
+<li><a onclick = "blog.goPage('about')" href="#">About</a></li>
+<li><a onclick = "blog.blog()" href="#">Projects</a></li>
 </ul>
 </div>
-<div id="content" class="content">
-  <div id="home" class="row">
-    <div class="l-12 s-12 center" > <img class="me" src="files/55.svg" alt="wawan sismadi">  </div>
-  </div>
-  <div id="about" class="row sosmed">
-    <div class="l-12 s-12 center" >Panggil aku <strong>Wawan</strong> </div>
-  </div>
-  <div id="sosmed" class="row sosmed">
-    <div class="l-12 s-12" style="text-align:center; ">
 
-      <a href="https://www.linkedin.com/in/sismadi"><img class="me" src="files/svg/045-linkedin.svg" alt="linkedin"></a>
-      <a href="https://github.com/sismadi"><img class="me" src="files/svg/038-github.svg" alt="github"></a>
-      <a href="https://www.facebook.com/wawan.sismadi/"><img class="me" src="files/svg/021-facebook.svg" alt="facebook"></a>
-      <a href="https://twitter.com/wawansismadi"><img class="me" src="files/svg/043-twitter.svg" alt="twitter"></a>
-      <a href="https://wa.me/6287885073237"><img class="me" src="files/svg/035-whatsapp.svg"  alt="whatsapp"></a>
-      <a href="https://discord.com/users/sismadi#4440/"><img class="me" src="files/svg/discord1.svg"  alt="discord"></a>
-    </div>
-  </div>
+<div class = "row content " id="content">
+
+
+<div class = "col-1-3 artikel">
+<hr class="image">
+<hr><hr><hr>
 </div>
-<div id="bawah" class="pDarkColor toast hide"></div>
-</main>
-  <script data-ad-client="ca-pub-4318794183471216" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  
+
+<div class = "col-2-3 artikel">
+
+<div class = "row">
+<div class = "row" >
+<i class="logo kecil"></i><input type="text" value=" apa yang anda pikirkan" onclick="modal.view()"> </div>
+</div>
+<div class = "row " >Postingan </div>
+<div class = "row " id="body">isi Postingan </div>
+
+ 
+
+</div>
+
+</div>
+
+<div class = "row footer">Made with <div id="ico"></div> by Ktupad 2021
+</div>
+</div>
+</div>
+
+<script type="text/javascript" src="blog.js"></script>
+<script type="text/javascript" src="modal.js"></script>
+
+<script>
+// modal.data='<hr class="image"><hr><hr><hr>';
+// modal.view();
+</script>
+
 </body>
 </html>
