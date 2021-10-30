@@ -16,7 +16,7 @@ arr:[
 view:function() {
 this.gebi('ico').innerHTML=this.svg();
 // this.gebi('img').innerHTML=this.svg();
-// this.page.home= this.gebi('home').innerHTML;
+this.page.home= this.gebi('content').innerHTML;
 // this.page.about= this.gebi('about').innerHTML;
 // this.goPage('home');
 this.home();
@@ -27,13 +27,14 @@ this.gebi('content').innerHTML=blog.page[i];
 },
 
 home:function() {
+this.gebi('content').innerHTML = this.page.home
 arr=this.arr;
 // out='<div class= "row artikel judul">  Projects </div>';
 out='';
 for(i in arr){
-out+='<i class="logo kecil"></i>Wawan sismadi\
-<div class = "row"> \
-<span onclick="blog.detail(\''+i+'\')">'+arr[i].nama+'</span>';
+out+='<div class = "row"> ';
+out+='<i class="logo kecil"></i>Wawan sismadi <br>';
+// out+='<span>'+arr[i].nama+'</span>';
 
 str=arr[i].isi;
 if(str.length>5){ str=str.substring(0, 5) + ' <span onclick="blog.more(\''+i+'\')"> more...</span>' }
@@ -41,6 +42,7 @@ if(str.length>5){ str=str.substring(0, 5) + ' <span onclick="blog.more(\''+i+'\'
 out+='<div id="content-'+i+'" >'+str+'</div>\
 <hr class="image">\
 <hr><hr><hr>\
+<div class="container"><i class="logo kecil"></i><input type="text" placeholder="Tulis komentar"></div>\
 </div>';
 }
 // this.gebi('content').innerHTML = arr[i].isi;
@@ -109,7 +111,8 @@ scroll:function(){
   }
 
       if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        alert("top");          // User has scrolled to the bottom of the element
+        // alert("top");
+        console.log("end page")
         }
 
 

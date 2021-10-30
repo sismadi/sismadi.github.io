@@ -4,8 +4,11 @@ data:'<hr class="image"><hr><hr><hr>',
 view:function() {
 out='<div id="myModal" class="modal">\
 <div class="modal-content">\
+<div class="row"><i class="logo kecil"></i></div>\
+<div class="row"><textarea> </textarea></div >\
+<div class="row"><button>Kirim</button></div >\
 <span class="close">&times;</span>';
-out+=this.data;
+// out+=this.data;
 out+='</div></div>';
 this.gebi('modal').innerHTML=out;
 this.open('modal');
