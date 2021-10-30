@@ -14,7 +14,7 @@ arr:[
 ],
 
 view:function() {
-// this.gebi('ico').innerHTML=this.svg();
+this.gebi('ico').innerHTML=this.svg();
 // this.gebi('img').innerHTML=this.svg();
 // this.page.home= this.gebi('home').innerHTML;
 // this.page.about= this.gebi('about').innerHTML;
