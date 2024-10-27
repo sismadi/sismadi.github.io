@@ -1,77 +1,200 @@
 <!DOCTYPE html>
+<!--
+Moon by DonatJS
+URL: https://donat.id
+-->
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="utf-8">
-<meta name="Description" content="Ktupad MVC Framework by wawan sismadi">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-<meta http-equiv="Cache-Control" content="public" max-age="31536000">
 
-<link rel="shortcut icon" href="favicon.ico">
-<link rel="stylesheet" type="text/css" href="blog.css" async>
-<link rel="stylesheet" type="text/css" href="modal.css" async>
+  <meta charset="utf-8">
+  <meta name="Description" content="DonatJS by Wawan Sismadi">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 
-<title>BayamJS v1.1.0</title>
-</head>
-<body>
-
-<!-- <div id="aurora" class="aurora-bg  aurora-outer "><div class="aurora-inner"></div></div>
-<div class="auroral-stars"></div>
--->
+  <meta http-equiv="Cache-control" content="public" max-age="31536000">
+  <!-- <meta http-equiv="Cache-Control" content="max-age=1209600"> -->
 
 
-<div id="navbar" class="hide">
-<div  class="page"><i class="logo kecil"></i></div>
+  <!-- <link rel="manifest" href="pwa/manifest.json"> -->
+
+  <!-- Add to home screen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="DonatJS responsive web template">
+  <link rel="apple-touch-icon" href="pwa/icons/icon-152x152.png">
+
+  <!-- Windows related -->
+  <meta name="msapplication-TileImage" content="pwa/icons/icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#386CC1">
+  <meta name="theme-color" content="#164391">
+
+  <meta property="og:title" content="DonatJS"/>
+  <meta property="og:image" content="https://donat.id/donat/donat.png"/>
+  <meta property="og:description" content="DonatJS responsive web template"/>
+  <meta property="og:url" content="https://donat.id"/>
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="627" />
+  <!-- TYPE BELOW IS PROBABLY: "website" or "article" or look on https://ogp.me/#types -->
+  <meta property="og:type" content="website"/>
+
+  <title>Taoucan | Rimba - Responsive Web Template</title>
+<link rel="icon" type="image/svg+xml" href="../pwa/favicon.svg">
+<link rel="icon" type="image/png" href="../pwa/favicon.png">
+<!-- External CSS -->
+<link rel="stylesheet" href="https://rimba.id/rimba.css">
+
+<link rel="stylesheet" href="style.css">
+
+
+<style>
+
+.sticky { position: -webkit-sticky; position: sticky; top: 0;width: 100%;}
+body,.main { margin: 0px;  }
+.header {background-color: #fff;width: 100%;display: inline-block;height: auto;}
+.header,.footer,.header ul {background-color:#caeaf0;}
+.header li a:hover { border-bottom: 2px solid skyblue ;background-color:#caeaf0;}
+
+.container{ margin-bottom: 10px;}
+
+section { padding: 60px; }
+section#hero,section .hero{ }
+
+@media screen and (max-width: 450px) {
+  body,.main{ margin: 10px; padding: 0; }
+  section { padding: 10px; }
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Markazi+Text|Raleway');
+
+
+body {  margin: 0;}
+body::after {background: #caeaf0;}
+
+
+#parallax-container {
+  display: block;
+  height: 640px;
+}
+
+#parallax-container div {
+  position: fixed;
+  top: 0;
+  background-position: center !important;
+  transform: translateY(0px);
+  height: 650px;
+  width: 100%;
+}
+
+#parallax-container img {
+  position: fixed;
+  bottom: 0;
+/* width: 100%; */
+}
+
+
+#panda {right: 0; width:270px; height: auto;
+}
+.bgparallax {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+
+}
+
+#sky { background-image: url(https://rimba.id/img/bg-01.png);}
+#mount { background-image: url(https://rimba.id/img/bg-02.png);}
+#tree { background-image: url(https://rimba.id/img/bg-03.png);}
+
+
+</style>
+
+
+<div id="parallax-container">
+  <div class="bgparallax" id="sky"></div>
+  <!-- <div><img  src="img/bg-01.png"></div> -->
+  <div class="bgparallax" id="mount" ></div>
+  <div class="bgparallax" id="tree" ></div>
+  <!-- <div><img id="tree" src="img/bg-02.png"></div> -->
+  <div><img id="panda" src="https://rimba.id/img/figure-05.png" alt="panda"></div>
+  <div><img src="https://rimba.id/img/figure-01.png" alt="lion"></div>
+  <div><img src="https://rimba.id/img/bg-04.png" alt="gress"></div>
 </div>
-<div id="modal" class="hide"></div>
 
-<div class = "row">
-<div class = "page ">
-<div class = "latar artikel pw" >
-<i class="logo besar" ></i>
-</div>
+<main id="main" class="main">
+<header class="header sticky">
+<div class="container">
+<a href="index.html" class="logo"><img src="https://rimba.id/img/logo-08.png" alt="Toucan"></a>
+<input class="menu-btn" type="checkbox" id="menu-btn">
+<label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+<ul class="menu">
+  <li><a href="index.html" class="active">Home</a></li>
+  <li><a href="about-us.html">Profile</a></li>
+  <li><a href="about-us.html">Blog</a></li>
+  <li><a href="about-us.html">Portofolio</a></li>
+<li><a href="menu.html">Procing</a></li>
+<li><a href="order-online.html">Contact</a></li>
 
-<div class = "row artikel judul " >
-  <div class="row dd"></div>
-  <div class="row pw">Wawan Sismadi</div>
-</div>
-
-<div class = "row menu">
-<ul>
-  <!-- <li><a onclick = "blog.goPage('home')" href="#">Home</a></li> -->
-  <li><a onclick = "blog.home()" href="#">Home</a></li>
-<li><a onclick = "blog.goPage('about')" href="#">About</a></li>
-<li><a onclick = "blog.blog()" href="#">Projects</a></li>
 </ul>
 </div>
+</header>
 
-<div class = "row content " id="content">
-<div class = "col-1-3 artikel">
-<hr class="image">
-<hr><hr><hr>
-</div>
-<div class = "col-2-3 artikel">
-<div class = "row">
-<div class="container">
-<i class="logo kecil"></i>
-<input type="text" placeholder="Apa yang anda pikirkan" onclick="modal.view()"></div>
-</div>
-<div class = "row " >Postingan </div>
-<div class = "row " id="body">isi Postingan </div>
-</div>
+
+
+<section id="hero">
+
+
+
+
+</section>
+<section id="about"></section>
+<section id="stats"></section>
+<section id="services"></section>
+<section id="features"></section>
+<section id="posts"></section>
+<section id="portofolio"></section>
+<section id="pricing"></section>
+<!-- <section id="faq"></section> -->
+<!-- <section id="team"></section> -->
+<!-- <section id="call"></section> -->
+<!-- <section id="testimonial"></section> -->
+<!-- <section id="contact"></section> -->
+<section id="clients"></section>
+<footer id="footer" class="footer"></footer>
+
+</main>
+
 </div>
 
-<div class = "row footer">Made with <div id="ico"></div> by Ktupad 2021
-</div>
-</div>
-</div>
+<script type="text/javascript" src="https://rimba.id/rimba.js"></script>
+<script type="text/javascript" src="https://rimba.id/svg.js"></script>
 
-<script type="text/javascript" src="blog.js"></script>
-<script type="text/javascript" src="modal.js"></script>
+<script type="text/javascript" src="svg.js"></script>
+<script type="text/javascript" src="script.js"></script>
 
-<script>
-// modal.data='<hr class="image"><hr><hr><hr>';
-// modal.view();
+<script type="text/javascript" >
+// web.controller.hero();
+web.controller.pricing();
+web.controller.posts();
+web.controller.stats();
+web.controller.footer();
+web.controller.about();
+web.controller.services();
+web.controller.portofolio();
+web.controller.features();
+web.controller.clients();
+
 </script>
 
-</body>
-</html>
+
+<script type="text/javascript">
+
+window.addEventListener('scroll', () => {
+  let parent =  document.getElementById('parallax-container');
+  let children = parent.getElementsByTagName('div');
+  for(let i = 0; i < children.length; i++) {
+    children[i].style.transform = 'translateY(-' + (window.pageYOffset * i / children.length) + 'px)';
+  }
+}, false)
+
+</script>
