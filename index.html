@@ -1,200 +1,101 @@
 <!DOCTYPE html>
-<!--
-Moon by DonatJS
-URL: https://donat.id
--->
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<meta charset="utf-8">
+<meta name="Description" content="Ktupad MVCS Framework by wawan sismadi">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<!-- <meta http-equiv="Cache-control" content="public" max-age="31536000"> -->
+<meta http-equiv="Cache-Control" content="max-age=1209600">
 
-  <meta charset="utf-8">
-  <meta name="Description" content="DonatJS by Wawan Sismadi">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>Piawai-Inventory</title>
+<!-- <link rel="shortcut icon" href="favicon.ico"> -->
+<link rel="stylesheet" type="text/css" href="web.css" async>
+<link rel="stylesheet" type="text/css" href="menu.css" async>
+<link rel="stylesheet" type="text/css" href="svg.css" async>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path id='pathws' d='M 6 17 L 2 17 L 2 12 C 2 -2 22 -2 22 12 C 22 20 14 22 12 22 L 7 22 L 7 12 C 7 5 17 5 17 12 C 17 15 14 17 12 17 L 11 17 L 11 14 L 12 14 C 13 14 14 13 14 12 C 14 9 10 9 10 12 L 10 19 L 12 19 C 14 19 19 17 19 12 C 19 2 5 2 5 12 L 5 14 L 6 14 Z' /></svg>" type="image/svg+xml">
+<!-- <link rel="stylesheet" href="./striped/style.css"> -->
 
-  <meta http-equiv="Cache-control" content="public" max-age="31536000">
-  <!-- <meta http-equiv="Cache-Control" content="max-age=1209600"> -->
+</head>
+<body >
 
+<div id="printarea" class="cetak hide"></div>
+<div id="depan" class="hide"></div>
+<main id="main" class="main spotlight">
 
-  <!-- <link rel="manifest" href="pwa/manifest.json"> -->
+<!-- <div id="content" class="content"></div> -->
 
-  <!-- Add to home screen for Safari on iOS -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="DonatJS responsive web template">
-  <link rel="apple-touch-icon" href="pwa/icons/icon-152x152.png">
+<div class="pwp-list-group striped-bg-both">
 
-  <!-- Windows related -->
-  <meta name="msapplication-TileImage" content="pwa/icons/icon-144x144.png">
-  <meta name="msapplication-TileColor" content="#386CC1">
-  <meta name="theme-color" content="#164391">
-
-  <meta property="og:title" content="DonatJS"/>
-  <meta property="og:image" content="https://donat.id/donat/donat.png"/>
-  <meta property="og:description" content="DonatJS responsive web template"/>
-  <meta property="og:url" content="https://donat.id"/>
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="627" />
-  <!-- TYPE BELOW IS PROBABLY: "website" or "article" or look on https://ogp.me/#types -->
-  <meta property="og:type" content="website"/>
-
-  <title>Taoucan | Rimba - Responsive Web Template</title>
-<link rel="icon" type="image/svg+xml" href="../pwa/favicon.svg">
-<link rel="icon" type="image/png" href="../pwa/favicon.png">
-<!-- External CSS -->
-<link rel="stylesheet" href="https://rimba.id/rimba.css">
-
-<link rel="stylesheet" href="style.css">
-
-
-<style>
-
-.sticky { position: -webkit-sticky; position: sticky; top: 0;width: 100%;}
-body,.main { margin: 0px;  }
-.header {background-color: #fff;width: 100%;display: inline-block;height: auto;}
-.header,.footer,.header ul {background-color:#caeaf0;}
-.header li a:hover { border-bottom: 2px solid skyblue ;background-color:#caeaf0;}
-
-.container{ margin-bottom: 10px;}
-
-section { padding: 60px; }
-section#hero,section .hero{ }
-
-@media screen and (max-width: 450px) {
-  body,.main{ margin: 10px; padding: 0; }
-  section { padding: 10px; }
-}
-
-
-@import url('https://fonts.googleapis.com/css?family=Markazi+Text|Raleway');
-
-
-body {  margin: 0;}
-body::after {background: #caeaf0;}
-
-
-#parallax-container {
-  display: block;
-  height: 640px;
-}
-
-#parallax-container div {
-  position: fixed;
-  top: 0;
-  background-position: center !important;
-  transform: translateY(0px);
-  height: 650px;
-  width: 100%;
-}
-
-#parallax-container img {
-  position: fixed;
-  bottom: 0;
-/* width: 100%; */
-}
-
-
-#panda {right: 0; width:270px; height: auto;
-}
-.bgparallax {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  position: relative;
-
-}
-
-#sky { background-image: url(https://rimba.id/img/bg-01.png);}
-#mount { background-image: url(https://rimba.id/img/bg-02.png);}
-#tree { background-image: url(https://rimba.id/img/bg-03.png);}
-
-
-</style>
-
-
-<div id="parallax-container">
-  <div class="bgparallax" id="sky"></div>
-  <!-- <div><img  src="img/bg-01.png"></div> -->
-  <div class="bgparallax" id="mount" ></div>
-  <div class="bgparallax" id="tree" ></div>
-  <!-- <div><img id="tree" src="img/bg-02.png"></div> -->
-  <div><img id="panda" src="https://rimba.id/img/figure-05.png" alt="panda"></div>
-  <div><img src="https://rimba.id/img/figure-01.png" alt="lion"></div>
-  <div><img src="https://rimba.id/img/bg-04.png" alt="gress"></div>
 </div>
 
-<main id="main" class="main">
-<header class="header sticky">
-<div class="container">
-<a href="index.html" class="logo"><img src="https://rimba.id/img/logo-08.png" alt="Toucan"></a>
-<input class="menu-btn" type="checkbox" id="menu-btn">
-<label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-<ul class="menu">
-  <li><a href="index.html" class="active">Home</a></li>
-  <li><a href="about-us.html">Profile</a></li>
-  <li><a href="about-us.html">Blog</a></li>
-  <li><a href="about-us.html">Portofolio</a></li>
-<li><a href="menu.html">Procing</a></li>
-<li><a href="order-online.html">Contact</a></li>
-
-</ul>
-</div>
-</header>
-
-
-
-<section id="hero">
-
-
-
-
-</section>
-<section id="about"></section>
-<section id="stats"></section>
-<section id="services"></section>
-<section id="features"></section>
-<section id="posts"></section>
-<section id="portofolio"></section>
-<section id="pricing"></section>
-<!-- <section id="faq"></section> -->
-<!-- <section id="team"></section> -->
-<!-- <section id="call"></section> -->
-<!-- <section id="testimonial"></section> -->
-<!-- <section id="contact"></section> -->
-<section id="clients"></section>
-<footer id="footer" class="footer"></footer>
-
+<div id="bawah" class="pDarkColor toast hide"></div>
 </main>
 
+
+
+<div class="row " id="header">.</div>
+<div class="main" id="body" >
+
+
+
+<div class="row" id="page1">
+
+
+
+<div class="kiri" ><span class="orange">Piawai</span><span class="orange sub">Inventory</span></div>
+
+
+<div class="kanan" >
+
+  <i class="di-facebook"></i>
+  <i class="di-instagram"></i>
+  <i class="di-twitter"></i>
 </div>
 
-<script type="text/javascript" src="https://rimba.id/rimba.js"></script>
-<script type="text/javascript" src="https://rimba.id/svg.js"></script>
+</div>
+
+<div class="row" id="page2">
+
+  <div class="menu-bar">
+    <!-- <div class="menu-title">Piawai</div> -->
+    <div class="burger" id="burgerBtn"  >☰</div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#" onclick="web.setPage(web.home)" >Home</a>
+      <a href="#" onclick="web.setPage(web.product)">Product</a>
+      <a href="#" onclick="web.setPage(web.order)">Order</a>
+      <a href="#" onclick="web.setPage(web.payment)">Payment</a>
+      <a href="#" onclick="web.setPage(web.contact)">Contact</a>
+    </nav>
+  </div>
+</div>
+
+
+<div class=" " id="content"></div>
+
+
+
+<div class="row" id="page5">
+<div class="kiri" >Piawai</div>
+<div class="kanan" >Copyright 2025</div>
+</div>
+
+</div>
+<!-- <div class="col-4-5 center" id="body">.</div> -->
 
 <script type="text/javascript" src="svg.js"></script>
 <script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript"  >
 
-<script type="text/javascript" >
-// web.controller.hero();
-web.controller.pricing();
-web.controller.posts();
-web.controller.stats();
-web.controller.footer();
-web.controller.about();
-web.controller.services();
-web.controller.portofolio();
-web.controller.features();
-web.controller.clients();
+
+
+web.setPage(web.home);
+
+svg.di();
+
 
 </script>
 
 
-<script type="text/javascript">
-
-window.addEventListener('scroll', () => {
-  let parent =  document.getElementById('parallax-container');
-  let children = parent.getElementsByTagName('div');
-  for(let i = 0; i < children.length; i++) {
-    children[i].style.transform = 'translateY(-' + (window.pageYOffset * i / children.length) + 'px)';
-  }
-}, false)
-
-</script>
+</body>
+</html>
