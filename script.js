@@ -16,7 +16,7 @@ Gratis Program CMS, LMS, Presensi dan Akuntansi <br>
 </div>
 
 <div class="col-1-3 artikel">
-<i style="max-width:300px;" class="kanan img"> ${svg.icon('piawai')}</i>
+<i style="max-width:300px;" class="kanan img"> ${svg.icon('sismadi')}</i>
 </div>
 
 </div>
@@ -395,3 +395,4 @@ Message *
 //     nav.classList.remove('active');
 //   });
 // });
+
