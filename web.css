@@ -157,6 +157,7 @@ font: normal 12px Georgia, "Times New Roman", Times, serif;
 color: #000000;
 line-height: 1.8em;
 margin: 0;
+   background: #ffffff;
 }
 /* #page2{ background: black;  float: left;padding: 20px 0px;} */
 /* #page2 a{ padding: 20px 30px; text-decoration: none; color:#ffffff;} */
@@ -195,7 +196,7 @@ right: 0;
   z-index: -1;
 }
 
-.row { width: 100%; display: table; table-layout: fixed; background: #ffffff; }
+.row { width: 100%; display: table; table-layout: fixed; }
 .row::after { content: ""; clear: both; }
 [class*='col-'] { float: left;   word-wrap: break-word;}
 .col-1-1 { width: 100%; }
