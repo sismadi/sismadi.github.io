@@ -70,8 +70,30 @@ Dibuat menggunakan PHP  dan MySQL , dengan perintah SQL sehingga mampu menangani
 </div>
 </div>
 </div>
+
+
+<div class="row gading" >
+
+<div class="col-1-3 artikel" >
+<i class="simg">${svg.icon('save')} </i>
+<span class="judul">Modular Architecture</span><br>
+Our MVCS framework is built to be extended.
 </div>
 
+<div class="col-1-3 artikel" >
+<i class="simg">${svg.icon('save')} </i>
+<span class="judul">Evidence-Based Approach</span><br>
+Insights driven by real data and industry research.
+</div>
+
+
+<div class="col-1-3 artikel" >
+<i class="simg">${svg.icon('person')}  </i>
+<span class="judul">Collaborative Development</span> <br>
+We build with the community and for the ecosystem.</div>
+</div>
+
+</div>
 `,
 
 
@@ -391,6 +413,7 @@ Message *
 //     nav.classList.remove('active');
 //   });
 // });
+
 
 
 
