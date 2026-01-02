@@ -43,7 +43,7 @@ home:`
 
 
 
-<div class="row " id="page4">
+<div class="row">
 
   <div class="col-1-3 artikel" id="page4-1">
   <span class="judul">News & Events</span><br>
@@ -87,7 +87,7 @@ Dibuat menggunakan PHP  dan MySQL , dengan perintah SQL sehingga mampu menangani
 
 
 
-<div class="row gading  striped-bg-both " >
+<div class="row gading  page4" >
 
   <div class="col-1-3 artikel" >
   <i class="simg">${svg.icon('save')} </i>
@@ -429,6 +429,7 @@ Message *
 //     nav.classList.remove('active');
 //   });
 // });
+
 
 
 
