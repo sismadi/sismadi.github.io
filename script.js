@@ -53,10 +53,9 @@ home:`
 
 <div class="col-2-3 artikel" id="page4-2">
 
-   <span class="judul2">
+ <span class="judul">
    "We believe powerful education technology should be open, scalable, and thoughtfully designed—from the code to the classroom experience."</h1>
-  </span>
-
+ </span>
 
 <span class="judul">Selamat Datang di Piawai</span><br>
 Sistem Informasi Akademik Sekolah. <hr>
@@ -429,6 +428,7 @@ Message *
 //     nav.classList.remove('active');
 //   });
 // });
+
 
 
 
