@@ -69,7 +69,6 @@ Dibuat menggunakan PHP  dan MySQL , dengan perintah SQL sehingga mampu menangani
 + Bisa Untuk Kasir.<br>
 </div>
 </div>
-</div>
 
 
 <div class="row gading" >
@@ -94,6 +93,8 @@ We build with the community and for the ecosystem.</div>
 </div>
 
 </div>
+</div>
+
 `,
 
 
@@ -413,6 +414,7 @@ Message *
 //     nav.classList.remove('active');
 //   });
 // });
+
 
 
 
