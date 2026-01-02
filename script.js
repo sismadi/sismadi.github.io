@@ -8,71 +8,65 @@ setPage:function(arr){
   web.gebi('content').innerHTML=arr;},
 
 home:`
+
 <div class="row striped-bg-both" id="page3">
 
-<div class="col-2-3 artikel"><span class="judul2">Arsitektur MVCS  </span><br>
-Model-View-Controller-Services <br>
-<a href="#">download</a>
+  <div class="col-2-3 artikel"><span class="judul2">Arsitektur MVCS  </span><br>
+  Model-View-Controller-Services <br>
+  <a href="#">download</a>
+  </div>
+
+  <div class="col-1-3 artikel">
+  <i style="max-width:300px;" class="kanan img"> ${svg.icon('sismadi')}</i>
+  </div>
+
 </div>
 
-<div class="col-1-3 artikel">
-<i style="max-width:300px;" class="kanan img"> ${svg.icon('sismadi')}</i>
-</div>
-
-</div>
 
 <div class="row gading" >
 
-<div class="col-1-2 artikel" >
-<i class="simg">${svg.icon('save')} </i>
-<span class="judul">Framework</span><br>Sistem Informasi Akademik Sekolah bisa diunduh dan digunakan.
-Maksimal produk yang bisa disimpan adalah 1000 item <br>
-+ Live Demo <br>
-+ download<br>
-+ Download Desktop <br>
-+ Download without Webserver</div>
+  <div class="col-1-2 artikel" >
+  <i class="simg">${svg.icon('save')} </i>
+  <span class="judul">Framework</span><br>Sistem Informasi Akademik Sekolah bisa diunduh dan digunakan.
+  Maksimal produk yang bisa disimpan adalah 1000 item <br>
+  </div>
 
-<div class="col-1-2 artikel" >
-<i class="simg">${svg.icon('person')}  </i>
-<span class="judul">Insights</span> <br>
-Harga Mulai 100.000, Program Komputer siap pakai, tersedia Aplikasi Inventory, Aplikasi Penjualan, Aplikasi Keuangan dan Aplikasi Dagang. <br>
-+ Order </div>
+  <div class="col-1-2 artikel" >
+  <i class="simg">${svg.icon('person')}  </i>
+  <span class="judul">Insights</span> <br>
+  Order 
+  </div>
 
 </div>
 
+<div class="row" id="page4">
 
-<div class="row">
-<div class="col-1-1 artikel" >
- <h1> "We believe powerful education technology should be open, scalable, and thoughtfully designed—from the code to the classroom experience."</h1>
-</div>
-</div>
+  <div class="col-1-1 artikel" >
+   <h1> "We believe powerful education technology should be open, scalable, and thoughtfully designed—from the code to the classroom experience."</h1>
+  </div>
+
 
 <div class="row gading" >
 
-<div class="col-1-3 artikel" >
-<i class="simg">${svg.icon('save')} </i>
-<span class="judul">Modular Architecture</span><br>
-Our MVCS framework is built to be extended.
-</div>
+  <div class="col-1-3 artikel" >
+  <i class="simg">${svg.icon('save')} </i>
+  <span class="judul">Modular Architecture</span><br>
+  Our MVCS framework is built to be extended.
+  </div>
 
-<div class="col-1-3 artikel" >
-<i class="simg">${svg.icon('save')} </i>
-<span class="judul">Evidence-Based Approach</span><br>
-Insights driven by real data and industry research.
-</div>
+  <div class="col-1-3 artikel" >
+  <i class="simg">${svg.icon('save')} </i>
+  <span class="judul">Evidence-Based Approach</span><br>
+  Insights driven by real data and industry research.
+  </div>
 
-
-<div class="col-1-3 artikel" >
-<i class="simg">${svg.icon('person')}  </i>
-<span class="judul">Collaborative Development</span> <br>
-We build with the community and for the ecosystem.
-</div>
-
+  <div class="col-1-3 artikel" >
+  <i class="simg">${svg.icon('person')}  </i>
+  <span class="judul">Collaborative Development</span> <br>
+  We build with the community and for the ecosystem.
+  </div>
 </div>
  
-
-
-</div>
 </div>
 
 `,
@@ -394,6 +388,7 @@ Message *
 //     nav.classList.remove('active');
 //   });
 // });
+
 
 
 
