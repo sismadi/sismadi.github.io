@@ -41,12 +41,11 @@ Harga Mulai 100.000, Program Komputer siap pakai, tersedia Aplikasi Inventory, A
 </div>
 
 
-<div class="row" id="page4">
+<div class="row">
 <div class="col-1-1 artikel" >
  <h1> "We believe powerful education technology should be open, scalable, and thoughtfully designed—from the code to the classroom experience."</h1>
 </div>
 </div>
-
 
 <div class="row gading" >
 
@@ -70,38 +69,7 @@ We build with the community and for the ecosystem.
 </div>
 
 </div>
-
-
-
-<div class="row  striped-bg-both " id="page4">
-<div class="col-1-3 artikel" id="page4-1">
-<span class="judul">News & Events</span><br>
-Sistem Informasi Dagang Berbasis Web <hr>
-Kami siap membantu membuat program yang disesuaikan dengan kebutuhan usaha anda.
-</div>
-
-<div class="col-2-3 artikel" id="page4-2">
-
-<span class="judul">Selamat Datang di Piawai</span><br>
-Sistem Informasi Akademik Sekolah. <hr>
-Program stokbarang adalah aplikasi database untuk distributor yang memiliki banyak supplier dan customer, dengan harga barang yang bervariasi,
-harga sebuah barang yang sama dapat berbeda harganya bergantung pada kesepakatan harga.<br>
-Dibuat menggunakan PHP  dan MySQL , dengan perintah SQL sehingga mampu menangani transaksi data yang besar. Stokbarang mendukung multi user dan Network.<hr>
-<div class="s-12 l-6">
-+ Cocok untuk banyak jenis usaha.<br>
-+ Nominal Converter.<br>
-+ Multi User.<br>
-+ Barcode Ready.<br>
-+ Laporan Keuangan Akuntansi Dagang dan Jasa.<br>
-</div>
-<div class="s-12 l-6">
-+ Pengingat batas minimal persediaan.<br>
-+ Pengingat barang kadaluarsa.<br>
-+ Export-impor dalam format excel.<br>
-+ Bisa Untuk Kasir.<br>
-</div>
-</div>
-
+ 
 
 
 </div>
@@ -426,6 +394,7 @@ Message *
 //     nav.classList.remove('active');
 //   });
 // });
+
 
 
 
