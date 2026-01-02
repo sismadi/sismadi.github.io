@@ -42,6 +42,36 @@ Harga Mulai 100.000, Program Komputer siap pakai, tersedia Aplikasi Inventory, A
 
 
 <div class="row  striped-bg-both " id="page4">
+ <h1> "We believe powerful education technology should be open, scalable, and thoughtfully designed—from the code to the classroom experience."</h1>
+</div>
+
+
+<div class="row gading" >
+
+<div class="col-1-3 artikel" >
+<i class="simg">${svg.icon('save')} </i>
+<span class="judul">Modular Architecture</span><br>
+Our MVCS framework is built to be extended.
+</div>
+
+<div class="col-1-3 artikel" >
+<i class="simg">${svg.icon('save')} </i>
+<span class="judul">Evidence-Based Approach</span><br>
+Insights driven by real data and industry research.
+</div>
+
+
+<div class="col-1-3 artikel" >
+<i class="simg">${svg.icon('person')}  </i>
+<span class="judul">Collaborative Development</span> <br>
+We build with the community and for the ecosystem.
+</div>
+
+</div>
+
+
+
+<div class="row  striped-bg-both " id="page4">
 <div class="col-1-3 artikel" id="page4-1">
 <span class="judul">News & Events</span><br>
 Sistem Informasi Dagang Berbasis Web <hr>
@@ -71,26 +101,6 @@ Dibuat menggunakan PHP  dan MySQL , dengan perintah SQL sehingga mampu menangani
 </div>
 
 
-<div class="row gading" >
-
-<div class="col-1-3 artikel" >
-<i class="simg">${svg.icon('save')} </i>
-<span class="judul">Modular Architecture</span><br>
-Our MVCS framework is built to be extended.
-</div>
-
-<div class="col-1-3 artikel" >
-<i class="simg">${svg.icon('save')} </i>
-<span class="judul">Evidence-Based Approach</span><br>
-Insights driven by real data and industry research.
-</div>
-
-
-<div class="col-1-3 artikel" >
-<i class="simg">${svg.icon('person')}  </i>
-<span class="judul">Collaborative Development</span> <br>
-We build with the community and for the ecosystem.</div>
-</div>
 
 </div>
 </div>
@@ -414,6 +424,7 @@ Message *
 //     nav.classList.remove('active');
 //   });
 // });
+
 
 
 
