@@ -195,7 +195,7 @@ right: 0;
   z-index: -1;
 }
 
-.row { width: 100%; display: table; table-layout: fixed; }
+.row { width: 100%; display: table; table-layout: fixed; background: #ffffff; }
 .row::after { content: ""; clear: both; }
 [class*='col-'] { float: left;   word-wrap: break-word;}
 .col-1-1 { width: 100%; }
