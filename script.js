@@ -22,26 +22,22 @@ Model-View-Controller-Services <br>
 </div>
 
 <div class="row gading" >
-<div class="col-1-3 artikel" >
+
+<div class="col-1-2 artikel" >
 <i class="simg">${svg.icon('save')} </i>
-<span class="judul">Free</span><br>Sistem Informasi Akademik Sekolah bisa diunduh dan digunakan.
+<span class="judul">Framework</span><br>Sistem Informasi Akademik Sekolah bisa diunduh dan digunakan.
 Maksimal produk yang bisa disimpan adalah 1000 item <br>
 + Live Demo <br>
 + download<br>
 + Download Desktop <br>
 + Download without Webserver</div>
-<div class="col-1-3 artikel" >
+
+<div class="col-1-2 artikel" >
 <i class="simg">${svg.icon('person')}  </i>
-<span class="judul">Unlimited</span> <br>
+<span class="judul">Insights</span> <br>
 Harga Mulai 100.000, Program Komputer siap pakai, tersedia Aplikasi Inventory, Aplikasi Penjualan, Aplikasi Keuangan dan Aplikasi Dagang. <br>
 + Order </div>
-<div class="col-1-3 artikel" >
-<i class="simg"> ${svg.icon('setting')}</i>
-<span class="judul">Customize</span> <br>
-Harga Mulai 1.500.000, Program Komputer yang disesuaikan dengan kebutuhan anda. <br>
-+ Hubungi Kami<br>
-+ download <br>
-+ Proposal</div>
+
 </div>
 
 
@@ -395,5 +391,6 @@ Message *
 //     nav.classList.remove('active');
 //   });
 // });
+
 
 
