@@ -42,7 +42,9 @@ Harga Mulai 100.000, Program Komputer siap pakai, tersedia Aplikasi Inventory, A
 
 
 <div class="row  striped-bg-both " id="page4">
+<div class="col-1-1 artikel" >
  <h1> "We believe powerful education technology should be open, scalable, and thoughtfully designed—from the code to the classroom experience."</h1>
+</div>
 </div>
 
 
@@ -424,6 +426,7 @@ Message *
 //     nav.classList.remove('active');
 //   });
 // });
+
 
 
 
