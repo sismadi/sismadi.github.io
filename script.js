@@ -43,7 +43,7 @@ home:`
 
 
 
-<div class="row">
+<div class="row bg-putih">
 
   <div class="col-1-3 artikel" id="page4-1">
   <span class="judul">News & Events</span><br>
@@ -428,6 +428,7 @@ Message *
 //     nav.classList.remove('active');
 //   });
 // });
+
 
 
 
