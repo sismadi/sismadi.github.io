@@ -1,6 +1,6 @@
 
 (function() {
-  let json = '/al/svg/data.json';
+  let json = '/svg/data.json';
   let cachedData = null;
     let isFetching = false;
 
