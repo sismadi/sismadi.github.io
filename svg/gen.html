@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Studio Pro v3.8</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5; --bg: #F8FAFC; --panel: #FFFFFF;
+            --border: #E2E8F0; --text: #1E293B; --muted: #64748B; --accent: #10B981;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); height: 100vh; display: flex; overflow: hidden; }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed; top: 0; left: -100%; width: 320px; height: 100%;
+            background: var(--panel); border-right: 1px solid var(--border);
+            z-index: 1000; transition: 0.3s ease; display: flex; flex-direction: column;
+        }
+        .sidebar.active { left: 0; }
+        @media (min-width: 1024px) { .sidebar { position: relative; left: 0; min-width: 320px; } }
+
+        .sidebar-header { padding: 20px; background: var(--primary); color: white; display: flex; justify-content: space-between; align-items: center; }
+        .sidebar-content { padding: 15px; overflow-y: auto; flex-grow: 1; }
+
+        /* Workspace */
+        .main-content { flex-grow: 1; display: flex; flex-direction: column; height: 100vh; overflow-y: auto; }
+        .top-nav { padding: 12px 20px; background: white; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
+        .workspace-grid { display: grid; grid-template-columns: 1fr; gap: 20px; padding: 20px; max-width: 1400px; margin: 0 auto; width: 100%; }
+        @media (min-width: 768px) { .workspace-grid { grid-template-columns: 1fr 1fr; } }
+
+        /* Canvas */
+        .card { background: white; border-radius: 12px; border: 1px solid var(--border); padding: 15px; }
+        .card-label { font-size: 10px; font-weight: 800; color: var(--muted); text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .canvas-area {
+            width: 100%; height: 320px; background: white; border: 1px solid #f1f5f9; position: relative;
+            display: flex; align-items: center; justify-content: center; border-radius: 8px;
+            background-image: radial-gradient(#cbd5e1 0.5px, transparent 0.5px); background-size: 20px 20px;
+        }
+
+        /* Controls */
+        .layer-box { background: #F8FAFC; border: 1px solid var(--border); border-radius: 10px; padding: 12px; margin-bottom: 12px; cursor: pointer; }
+        .layer-box.active { border-color: var(--primary); background: #EEF2FF; }
+        .controls-grid { display: grid; grid-template-columns: 40px 1fr; gap: 12px; margin-top: 10px; align-items: center; }
+
+        select, .search-input, .vb-input { width: 100%; padding: 8px; border-radius: 6px; border: 1px solid var(--border); font-size: 12px; outline: none; margin-bottom: 5px;}
+        input[type="color"] { -webkit-appearance: none; border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; background: none; }
+        input[type="color"]::-webkit-color-swatch { border-radius: 50%; border: 1px solid var(--border); }
+
+        /* UI Elements */
+        .btn-ui { background: #EEF2FF; color: var(--primary); border: none; padding: 6px 12px; border-radius: 6px; font-size: 10px; font-weight: 700; cursor: pointer; }
+        .btn-ui:hover { background: var(--primary); color: white; }
+        .code-wrapper { display: none; margin-top: 10px; }
+        .code-wrapper.show { display: block; }
+        pre { background: #0F172A; color: #38BDF8; padding: 12px; border-radius: 8px; font-size: 11px; overflow: auto; max-height: 200px; }
+
+        #toast {
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(100px);
+            background: #1E293B; color: white; padding: 10px 20px; border-radius: 50px;
+            font-size: 12px; transition: 0.3s; z-index: 2000;
+        }
+        #toast.show { transform: translateX(-50%) translateY(0); }
+        .gizmo-handle { fill: white; stroke: var(--primary); stroke-width: 2; cursor: nwse-resize; }
+        .gizmo-rect { fill: none; stroke: var(--primary); stroke-dasharray: 4; }
+    </style>
+</head>
+<body>
+
+<div id="toast">Berhasil disalin!</div>
+
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <b>Studio Layers</b>
+        <button onclick="toggleSidebar()" style="color:white; border:none; background:none; font-size:20px;" class="lg-hidden">×</button>
+    </div>
+    <div class="sidebar-content">
+        <label class="card-label">ViewBox & Search</label>
+        <input type="text" id="svgVB" class="vb-input" value="0 0 100 100" oninput="render()">
+        <input type="text" id="iconSearch" class="search-input" placeholder="Cari ikon..." oninput="render()">
+
+        <div id="layersContainer"></div>
+        <button onclick="addLayer()" style="width:100%; padding:12px; background:var(--primary); color:white; border:none; border-radius:8px; font-weight:700; cursor:pointer;">+ Add New Icon</button>
+    </div>
+</aside>
+
+<main class="main-content">
+    <nav class="top-nav">
+        <button class="btn-ui" onclick="toggleSidebar()">☰ Menu</button>
+        <h2 style="font-size: 14px; font-weight: 700;">SVG Studio Pro v3.8</h2>
+        <div style="width:50px"></div>
+    </nav>
+
+    <div class="workspace-grid">
+        <div class="card">
+            <span class="card-label">Interactive Editor</span>
+            <div class="canvas-area"><svg id="editorSvg" width="100%" height="100%"></svg></div>
+        </div>
+        <div class="card">
+            <span class="card-label">Result Preview</span>
+            <div class="canvas-area" style="border-color: var(--accent)"><svg id="previewSvg" width="100%" height="100%"></svg></div>
+        </div>
+        <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center">
+                <span class="card-label">SVG Markup</span>
+                <div>
+                    <button class="btn-ui" onclick="toggleCode('svg')">VIEW</button>
+                    <button class="btn-ui" onclick="downloadSVG()">SVG</button>
+                </div>
+            </div>
+            <div id="svgWrap" class="code-wrapper"><pre id="codeSVG"></pre></div>
+        </div>
+        <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center">
+                <span class="card-label">JSON Data</span>
+                <div>
+                    <button class="btn-ui" onclick="toggleCode('json')">VIEW</button>
+                    <button class="btn-ui" onclick="copyJSON()">COPY</button>
+                </div>
+            </div>
+            <div id="jsonWrap" class="code-wrapper"><pre id="codeJSON"></pre></div>
+        </div>
+    </div>
+</main>
+
+<script>
+    let LIB = {};
+    let state = {
+        viewBox: "0 0 100 100",
+        layers: [{ id: Date.now(), ref: 'whatsapp', x: 25, y: 25, scale: 2.5, fill: '#10B981', opacity: 1 }]
+    };
+
+    let selectedIdx = 0, isDragging = false, isResizing = false, dragOffset = { x: 0, y: 0 }, initialDist = 0, initialScale = 1;
+
+    async function loadLibrary() {
+        try {
+            const res = await fetch('data.json');
+            const data = await res.json();
+            LIB = Object.keys(data).reduce((acc, k) => { if(typeof data[k] === 'string') acc[k] = data[k]; return acc; }, {});
+            render();
+        } catch (e) {
+            LIB = { "whatsapp": "M20 11A8 8 0 018 18L3 21 5 15A8 8 0 014 11 1 1 0 0120 11Z" };
+            render();
+        }
+    }
+
+    function showToast(m) { const t = document.getElementById('toast'); t.textContent = m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 2000); }
+    function toggleSidebar() { document.getElementById('sidebar').classList.toggle('active'); }
+    function toggleCode(id) { document.getElementById(id + 'Wrap').classList.toggle('show'); }
+
+    function addLayer() {
+        const k = Object.keys(LIB)[0] || 'whatsapp';
+        state.layers.push({ id: Date.now(), ref: k, x: 30, y: 30, scale: 2, fill: '#4F46E5', opacity: 1 });
+        selectedIdx = state.layers.length - 1;
+        render();
+    }
+
+    // --- Core Interaction Functions ---
+    function getMousePos(e, svg) {
+        const pt = svg.createSVGPoint();
+        pt.x = e.clientX || (e.touches && e.touches[0].clientX);
+        pt.y = e.clientY || (e.touches && e.touches[0].clientY);
+        return pt.matrixTransform(svg.getScreenCTM().inverse());
+    }
+
+    window.startDrag = (e, i) => {
+        e.stopPropagation(); selectedIdx = i; isDragging = true;
+        const pos = getMousePos(e, document.getElementById('editorSvg'));
+        dragOffset.x = pos.x - state.layers[i].x; dragOffset.y = pos.y - state.layers[i].y;
+        render();
+    };
+
+    window.startResize = (e, i) => {
+        e.stopPropagation(); isResizing = true;
+        const pos = getMousePos(e, document.getElementById('editorSvg'));
+        initialScale = state.layers[i].scale;
+        initialDist = Math.sqrt(Math.pow(pos.x - state.layers[i].x, 2) + Math.pow(pos.y - state.layers[i].y, 2));
+    };
+
+    window.onmousemove = window.ontouchmove = (e) => {
+        if (!isDragging && !isResizing) return;
+        const pos = getMousePos(e, document.getElementById('editorSvg'));
+        const l = state.layers[selectedIdx];
+        if (isDragging) { l.x = pos.x - dragOffset.x; l.y = pos.y - dragOffset.y; }
+        else if (isResizing) {
+            const d = Math.sqrt(Math.pow(pos.x - l.x, 2) + Math.pow(pos.y - l.y, 2));
+            l.scale = Math.max(0.1, (initialScale * (d / initialDist))).toFixed(2);
+        }
+        render(false);
+    };
+
+    window.onmouseup = window.ontouchend = () => { if(isDragging || isResizing) { isDragging = isResizing = false; render(true); } };
+
+    // --- Render & UI Update ---
+    function render(fullUpdate = true) {
+        const editor = document.getElementById('editorSvg');
+        const preview = document.getElementById('previewSvg');
+        state.viewBox = document.getElementById('svgVB').value;
+        [editor, preview].forEach(s => s.setAttribute('viewBox', state.viewBox));
+
+        const draw = (isEd) => state.layers.map((l, i) => `
+            <g transform="translate(${l.x} ${l.y}) scale(${l.scale})" onmousedown="${isEd ? `startDrag(event,${i})` : ''}" style="cursor:move">
+                <path d="${LIB[l.ref] || ''}" fill="${l.fill}" opacity="${l.opacity}" />
+                ${isEd && selectedIdx === i ? `<rect x="-1" y="-1" width="26" height="26" class="gizmo-rect" /><circle cx="25" cy="25" r="3.5" class="gizmo-handle" onmousedown="startResize(event,${i})" />` : ''}
+            </g>`).join('');
+
+        editor.innerHTML = draw(true);
+        preview.innerHTML = draw(false);
+
+        if(fullUpdate) {
+            const searchTerm = document.getElementById('iconSearch').value.toLowerCase();
+            const filteredKeys = Object.keys(LIB).filter(k => k.toLowerCase().includes(searchTerm));
+
+            document.getElementById('layersContainer').innerHTML = state.layers.map((l, i) => `
+                <div class="layer-box ${selectedIdx === i ? 'active' : ''}" onclick="selectedIdx=${i}; render()">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px">
+                        <b style="font-size:10px; color:var(--primary)">${l.ref.toUpperCase()}</b>
+                        <span onclick="event.stopPropagation(); state.layers.splice(${i},1); selectedIdx=0; render()" style="color:#EF4444; font-weight:700; font-size:10px">HAPUS</span>
+                    </div>
+                    <select onchange="state.layers[${i}].ref=this.value; render()" onclick="event.stopPropagation()">
+                        ${filteredKeys.map(k => `<option value="${k}" ${l.ref===k?'selected':''}>${k}</option>`).join('')}
+                    </select>
+                    <div class="controls-grid">
+                        <input type="color" value="${l.fill}" oninput="state.layers[${i}].fill=this.value; render(false)" onclick="event.stopPropagation()">
+                        <input type="range" min="0" max="1" step="0.1" value="${l.opacity}" oninput="state.layers[${i}].opacity=this.value; render(false)" onclick="event.stopPropagation()">
+                    </div>
+                </div>`).join('');
+
+            updateOutputs();
+        }
+    }
+
+    function updateOutputs() {
+        document.getElementById('codeSVG').textContent = document.getElementById('previewSvg').outerHTML.replace(/></g, '>\n<');
+        const json = {
+            "composite_icon": {
+                "viewBox": state.viewBox,
+                "layers": state.layers.map(l => ({
+                    "ref": l.ref, "pos": `${Math.round(l.x)},${Math.round(l.y)}`,
+                    "scale": parseFloat(l.scale), "fill": l.fill, "opacity": parseFloat(l.opacity)
+                }))
+            }
+        };
+        document.getElementById('codeJSON').textContent = JSON.stringify(json, null, 4).replace(/^\{|\}$/g, '').trim();
+    }
+
+    function downloadSVG() {
+        const blob = new Blob([document.getElementById('previewSvg').outerHTML], {type: "image/svg+xml"});
+        const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "studio-icon.svg"; a.click();
+        showToast("SVG diunduh!");
+    }
+
+    function copyJSON() {
+        navigator.clipboard.writeText(document.getElementById('codeJSON').textContent);
+        showToast("JSON disalin!");
+    }
+
+    window.onload = loadLibrary;
+</script>
+</body>
+</html>

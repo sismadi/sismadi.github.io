@@ -1,0 +1,57 @@
+:root {
+  --pColor: #0C5175;
+  --pColor: red;
+--pLightColor: blue;
+}
+
+.whatsapp-theme {
+--pLightColor: #25D366;
+--pColor: #075E54;
+}
+
+img[data-src] {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.di-svg.loaded {
+    animation: fadeInIcon 0.5s forwards;
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+
+}
+
+@keyframes fadeInIcon {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.di-svg {
+filter: drop-shadow(3px 5px 2px rgba(0,0,0,0.3));
+overflow: visible;
+}
+
+.svg-p {
+stroke: white;
+stroke-width: 1;
+transition: 0.3s ease;
+}
+
+.di-svg:hover .svg-p {
+stroke-dasharray: 80;
+stroke-dashoffset: 80;
+animation: walkStroke 5s linear infinite;
+filter: drop-shadow(0 0 5px white);
+}
+
+@keyframes walkStroke { to { stroke-dashoffset: 0 } }
+.spin { transform-origin: center; animation: spinIco 2s linear infinite; }
+.float { animation: floatIco 8s ease-in-out infinite; }
+.pulse { transform-origin: center; animation: pulseIco 3s ease-in-out infinite;}
+
+@keyframes spinIco { to { transform: rotate(360deg); } }
+@keyframes floatIco { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+@keyframes pulseIco { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.10); opacity: 0.7;}100% {transform: scale(1); opacity: 1;}
+}

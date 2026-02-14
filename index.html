@@ -2,87 +2,132 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8">
-<meta name="Description" content="Ktupad MVCS Framework by wawan sismadi">
+<meta name="Description" content="DonatJS by Wawan Sismadi">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-<!-- <meta http-equiv="Cache-control" content="public" max-age="31536000"> -->
+
+<meta http-equiv="Cache-control" content="public" max-age="31536000">
 <meta http-equiv="Cache-Control" content="max-age=1209600">
 
-<title>Sismadis</title>
-<!-- <link rel="shortcut icon" href="favicon.ico"> -->
-<link rel="stylesheet" type="text/css" href="web.css" async>
-<link rel="stylesheet" type="text/css" href="menu.css" async>
-<link rel="stylesheet" type="text/css" href="svg.css" async>
+
+<!-- <link rel="manifest" href="https://donat.id/pwa/manifest.json"> -->
+
+<!-- Add to home screen for Safari on iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="DonatJS UKM">
+<meta name="mobile-web-app-capable" content="yes">
+
+<link rel="apple-touch-icon" href="https://donat.id/pwa/icons/icon-152x152.png">
+
+<!-- Windows related -->
+<meta name="msapplication-TileImage" content="pwa/icons/icon-144x144.png">
+<meta name="msapplication-TileColor" content="#386CC1">
+<meta name="theme-color" content="#164391">
+
+<meta property="og:title" content="UKM"/>
+<meta property="og:image" content="https://donat.id/app/ukm/donat-ukm.png"/>
+<meta property="og:description" content="Usaha Kecil Menengah"/>
+<meta property="og:url" content="https://donat.id/app/ukm"/>
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="627" />
+<!-- TYPE BELOW IS PROBABLY: "website" or "article" or look on https://ogp.me/#types -->
+<meta property="og:type" content="website"/>
+
+<title>Sismadi</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" href="favicon.png">
+
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path id='pathws' d='M 6 14 C 5 12 7 2 12 1 C 14 1 17 5 17 6 C 17 6 14 6 14 6 C 14 6 13 4 12 4 C 11 4 10 6 10 6 C 12 5 22 7 23 12 C 23 14 19 17 18 17 C 18 17 18 14 18 14 C 18 14 20 13 20 12 C 20 11 18 10 18 10 C 19 12 17 22 12 23 C 10 23 7 19 7 18 C 7 18 10 18 10 18 C 10 18 11 20 12 20 C 13 20 14 18 14 18 C 12 19 2 17 1 12 C 1 10 5 7 6 7 C 6 7 6 10 6 10 C 6 10 4 11 4 12 C 4 13 6 14 6 14 M 15 15 C 16 13 16 11 15 9 C 13 8 11 8 9 9 C 8 11 8 13 9 15 C 11 16 13 16 15 15' /></svg>" type="image/svg+xml">
-<!-- <link rel="stylesheet" href="./striped/style.css"> -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/al/svg/style.css" >
+
+<link rel="stylesheet" type="text/css" href="/al/donat/donat.css" >
+<link rel="stylesheet" type="text/css" href="/al/donat/tabs.css" >
+
+<link rel="stylesheet" type="text/css" href="/al/ui/login.css" >
+<link rel="stylesheet" type="text/css" href="/al/ui/style.css" >
+
+<link rel="stylesheet" type="text/css" href="style.css" >
 
 </head>
-<body >
+<body>
 
-<div id="printarea" class="cetak hide"></div>
-<div id="depan" class="hide"></div>
-<main id="main" class="main spotlight">
 
-<!-- <div id="content" class="content"></div> -->
+<div id="modal" class="hide depan"></div>
+<div id="bawah"  class="toast hide" > info </div>
 
-<div class="pwp-list-group striped-bg-both">
-
+<div id="menu" class="menu" tabindex="0" >
+<div class="sidebar-header">
+<div class="logo hide">
+<img data-src="?sismadi/100x100" alt="Donat">
+</div>
+<p>Sismadi</p>
 </div>
 
-<div id="bawah" class="pDarkColor toast hide"></div>
-</main>
 
-<div class="row " id="header">.</div>
-<div class="main" id="body" >
+<ul id='leftmenu'>
+<li data-info="page/web/home"> <img data-src="?house/32x32" alt="Donat"> Home</li>
+<li data-info="page/web/dashboard" class="item" ><img data-src="?menu/32x32" alt="Donat"> Dashboard</li>
+<li data-info="page/web/profile"> <img data-src="?person/32x32" alt="Donat"> Profile</li>
+</ul>
 
-<div class="row" id="page1">
-
-<div class="kiri" ><span class="orange">Sismadi</span><span class="orange sub">Hub</span></div>
-
-<div class="kanan" >
-
-  <i class="di-facebook"></i>
-  <i class="di-instagram"></i>
-  <i class="di-twitter"></i>
+<div class="sidebar-footer">
+© 2026 sismadi<br>
+Web Developer
+</div>
 </div>
 
+<div id="panel-container"></div>
+<div id="main" class="main">
+<div id="header" class="header" ></div>
+<div id="topmenu" class="topmenu sticky-top"> topmenu </div>
+
+<main><div id="content" class="content" ></div></main>
+<div id="footer" class="footer" >Made with <img data-src="?donat/32x32" alt="Donat"> by donat.id</div>
 </div>
 
-<div class="row" id="page2">
+<script type="text/javascript" src="config.js"></script>
 
-  <div class="menu-bar">
-    <!-- <div class="menu-title">Piawai</div> -->
-    <div class="burger" id="burgerBtn"  >☰</div>
-    <nav class="nav-links" id="navLinks">
-      <a href="#" onclick="web.setPage(web.home)" >Home</a>
-      <a href="#" onclick="web.setPage(web.product)">Framework</a>
-      <a href="#" onclick="web.setPage(web.order)">Insights</a>
-      <a href="#" onclick="web.setPage(web.payment)">Team</a>
-      <a href="#" onclick="web.setPage(web.contact)">Labs</a>
-    </nav>
-  </div>
-</div>
+<script type="text/javascript" src="/al/donat/donat.js"></script>
+<script type="text/javascript" src="/al/donat/tabs.js"></script>
 
-<div class=" " id="content"></div>
+<script type="text/javascript" src="/al/ui/script.js"></script>
 
-<div class="row" id="page5">
-<div class="kiri" >Sismadi</div>
-<div class="kanan" >Copyright 2025</div>
-</div>
+<script type="text/javascript" src="/al/svg/script.js"></script>
 
-</div>
-<!-- <div class="col-4-5 center" id="body">.</div> -->
 
-<script type="text/javascript" src="svg.js"></script>
+<script type="text/javascript" src="/al/ui/login.js"></script>
+<script type="text/javascript" src="/al/ui/app.js"></script>
+
+<script type="text/javascript" src="/al/ui/svg.js"></script>
+<script type="text/javascript" src="/al/ui/page.js"></script>
+
 <script type="text/javascript" src="script.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript"  >
 
-web.setPage(web.home);
 
-svg.di();
+<script type="text/javascript" >
+
+const leftMenu = d.gebi('leftmenu');
+// menu=['home','dashboard','profile']''
+
+leftMenu.addEventListener('click', (event) => {
+    const li = event.target.closest('li');
+    if (li && leftMenu.contains(li)) {
+        const targetPath = li.getAttribute('data-info');
+        navigate(`${targetPath}`);
+    }
+});
+
+window.addEventListener('popstate', () => {
+    // Panggil kembali render page saat URL berubah
+    const currentPath = window.location.search; // misal: ?lms/web/page/profile/ID
+    ui.renderPage(currentPath);
+});
 
 </script>
 
+
 </body>
 </html>
-

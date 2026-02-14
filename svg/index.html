@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Dynamic SVG Pro</title>
+<link rel="stylesheet" type="text/css" href="style.css" >
+</head>
+<body>
+<div class="container" id="content"></div>
+<div class="container">
+  <img  data-src="?twitter/150x120" alt="Medsos Group">
+  <img  data-src="?twitter/120x120/red" alt="Medsos Group">
+  <img  data-src="?twitter/220x220/red-yellow" alt="Medsos Group">
+
+</div>
+
+<script src="svg.js"></script>
+
+<script>
+
+async function loadIcons() {
+try {
+const response = await fetch('svg.json');
+const data = await response.json();
+let out = "";
+Object.entries(data).forEach(([name, path]) => {
+out += `
+<img data-src="?${name}/60x60" alt="${name} Solid">`;
+});
+document.getElementById('content').innerHTML = out;
+
+} catch (error) {
+console.error("Gagal memuat ikon:", error);
+}
+}
+loadIcons();
+</script>
+
+
+</body>
+</html>

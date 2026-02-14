@@ -1,0 +1,263 @@
+/* sertifikat */
+.canvascert {
+  width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  /* margin-top: 20px; */
+}
+
+/* mp4 player */
+
+:root{
+  --bg:#0f172a; --panel:#111827; --muted:#334155; --text:#e5e7eb; --accent:#38bdf8;
+}
+
+*{box-sizing:border-box}
+
+.player{overflow:hidden;}
+.video-stage{position:relative; aspect-ratio:16/9; background:#000}
+video{position:absolute; inset:0; width:100%; height:100%; object-fit:contain;}
+
+/* Seek (display-only) */
+.seek{display:flex; align-items:center; gap:10px; padding:10px 12px;   border-top:1px solid #1f2937}
+.time{font-variant-numeric:tabular-nums; opacity:.9}
+.bar{position:relative; flex:1; height:10px;   overflow:hidden; border:1px solid #1f2937}
+.progress{position:absolute; inset:0; background:linear-gradient(90deg,var(--accent) 0 var(--prog,0%), transparent var(--prog,0%));}
+input[type="range"].seek-range{position:absolute; inset:0; width:100%; height:100%; opacity:0; pointer-events:none}
+
+.controls{display:flex; align-items:center; gap:10px; padding:12px; border-top:1px solid #1f2937; }
+
+/* menu breadcrumb */
+.toolbar{display:flex;gap:12px;align-items:center;justify-content:space-between;margin:6px 0 10px}
+.toolbar .search{flex:1}
+.toolbar .search input{width:100%;padding:8px 10px;border:1px solid #d0d7de;border-radius:8px;font:14px system-ui}
+.breadcrumb{font:14px system-ui;background:#f6f8fa;border:1px solid #e5e7eb;border-radius:8px;padding:8px 10px}
+.breadcrumb a{color:#2563eb;text-decoration:none;cursor:pointer}
+.breadcrumb a:hover{text-decoration:underline}
+.muted{color:#6b7280;font-size:13px}
+
+
+.img.crop{
+display: inline-block;
+max-width: 200px;
+}
+
+.tengah #canvas {
+border: solid 1px;
+}
+
+
+.canvas-wrap{
+  margin-top:15px;
+  text-align:center;
+}
+canvas{
+  width:100%;
+  /* max-width:900px; */
+  height:auto;
+  border:1px solid #ccc;
+}
+
+
+
+
+
+/* tabs */
+
+    .cardtabs {
+        background: white;
+        padding: 15px;
+        border-radius: 6px;
+        border: 1px solid #cfe2ff;
+    }
+
+    /* Tabs Bar */
+    .tabs-wrapper {
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .tabs {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        flex-wrap: nowrap;
+        overflow: hidden;
+    }
+
+    .tabs li {
+        padding: 10px 16px;
+        border: 1px solid #ddd;
+        /* border-bottom: none; */
+        margin-right: 4px;
+        cursor: pointer;
+        background: #F8F9FA;
+    }
+
+    .tabs li.active {
+      background: #fff;
+        /* border-color: #99bfff; */
+        font-weight: bold;
+        border-bottom: none;
+
+    }
+
+    /* Dropdown Button */
+    #moreBtn {
+        margin-left: auto;
+        padding: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        background: #fff;
+        border: 1px solid #bbb;
+        border-radius: 4px;
+        display: none; /* Hidden unless needed */
+    }
+
+    /* Dropdown Menu */
+    #moreMenu {
+        position: absolute;
+        right: 0;
+        top: 45px;
+        background: #fff;
+        border: 1px solid #bbb;
+        border-radius: 4px;
+        display: none;
+        z-index: 999;
+        min-width: 130px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    #moreMenu div {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    #moreMenu div:hover {
+        background: #f5f5f5;
+    }
+
+    #moreMenu div:last-child {
+        border-bottom: none;
+    }
+
+    /* Content Box */
+    #contentBox {
+        margin-top: -1px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        background: #fff;
+        border-radius: 0 0 6px 6px;
+        min-height: 120px;
+    }
+
+H1{ margin: 0;}
+
+
+.topmenu {
+    position: -webkit-sticky; /* Dukungan untuk Safari */
+    position: sticky;
+    top: 0;           /* Menempel di bagian paling atas kontainer induk */
+    z-index: 11;    /* Memastikan header berada di atas konten row lainnya */
+    background-color: white; /* Opsional: agar konten di bawahnya tidak terlihat saat scrolling */
+}
+
+#main {
+    overflow: visible; /* Penting: sticky tidak akan bekerja jika induknya memiliki overflow: hidden/auto/scroll */
+}
+
+
+
+@media screen and (max-width: 700px) {
+  .topmenu {top:50px;}
+}
+
+@media screen and (max-width: 450px) {
+  .topmenu {top:0;}
+}
+
+
+.menu{
+background-image:
+/* url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23ffffff14' d='M6 17 L2 17 L2 12 C2 -2 22 -2 22 12 C22 20 14 22 12 22 L7 22 L7 12 C7 5 17 5 17 12 C17 15 14 17 12 17 L11 17 L11 14 L12 14 C13 14 14 13 14 12 C14 9 10 9 10 12 L10 19 L12 19 C14 19 19 17 19 12 C19 2 5 2 5 12 L5 14 L6 14 Z'/></svg>"), */
+linear-gradient(var(--pColor), var(--pColor), var(--pDarkColor));
+background-size: 40px, cover;
+background-repeat: repeat, no-repeat;
+background-position: center, center;
+}
+
+/* ===== Animated Pattern Background for Menu ===== */
+.menu {
+  position: fixed;
+  overflow: hidden;
+}
+
+/* layer animasi */
+.menu::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+
+  /* SVG pattern (titik / icon kecil) */
+  background-image:
+  /* url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><circle cx='5' cy='5' r='2' fill='white' opacity='0.35'/></svg>"); */
+
+
+  url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23ffffff14' d='M6 17 L2 17 L2 12 C2 -2 22 -2 22 12 C22 20 14 22 12 22 L7 22 L7 12 C7 5 17 5 17 12 C17 15 14 17 12 17 L11 17 L11 14 L12 14 C13 14 14 13 14 12 C14 9 10 9 10 12 L10 19 L12 19 C14 19 19 17 19 12 C19 2 5 2 5 12 L5 14 L6 14 Z'/></svg>");
+
+
+  background-repeat: repeat;
+  background-size: 60px 60px; /* jarak antar pola */
+
+  opacity: 0.15;
+  transform: rotate(-18deg);
+
+  animation: menuPatternMove 50s linear infinite;
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* pastikan isi menu di atas background */
+.menu > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* animasi bergerak bawah ke atas + miring */
+@keyframes menuPatternMove {
+  from {
+    background-position: 0 300px;
+  }
+  to {
+    background-position: 200px -300px;
+  }
+}
+
+
+/* login */
+
+.app-panel,.profile-panel{
+  position:fixed;
+  top:64px;
+  right:16px;
+  width:300px;
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:12px;
+  box-shadow:0 8px 24px rgba(0,0,0,.15);
+  padding:16px;
+  display:none;
+  z-index:9000;
+}
+
+.app-panel.active, .profile-panel.active{display:block}
+.app-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px;}
+.app-item{text-align:center;padding:12px 6px;border-radius:10px;cursor:pointer;}
+.app-item:hover{ background:var(--pLightColor); color: var(--pButtonColor)}
+.app-icon{font-size:28px}
+.app-name{font-size:12px}
