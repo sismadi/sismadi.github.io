@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kursus Generator - Sismadi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+<div x-data="kursusApp()" class="flex h-screen overflow-hidden">
+
+    <aside class="w-1/2 h-full overflow-y-auto border-r bg-white p-6 shadow-xl transition-all">
+        <div class="mb-6">
+            <h1 class="text-xl font-bold text-indigo-600 mb-4">LMS Generator</h1>
+
+            <div class="flex border-b">
+                <button @click="activeTab = 'kursus'" :class="activeTab === 'kursus' ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500'" class="py-2 px-4 border-b-2 font-medium text-sm">Kursus</button>
+                <button @click="activeTab = 'kuis'" :class="activeTab === 'kuis' ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500'" class="py-2 px-4 border-b-2 font-medium text-sm">Kuis</button>
+                <button @click="activeTab = 'cert'" :class="activeTab === 'cert' ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500'" class="py-2 px-4 border-b-2 font-medium text-sm">Sertifikat</button>
+            </div>
+        </div>
+
+        <div class="flex gap-2 mb-6">
+            <label class="bg-slate-100 hover:bg-slate-200 text-slate-600 px-3 py-1.5 rounded text-sm cursor-pointer border border-slate-300 transition">
+                <span>Import JSON</span>
+                <input type="file" accept=".json" class="hidden" @change="importJSON">
+            </label>
+            <button @click="downloadJSON" class="bg-emerald-600 text-white px-3 py-1.5 rounded text-sm hover:bg-emerald-700 transition">Download</button>
+            <button @click="addItem" class="bg-indigo-600 text-white px-3 py-1.5 rounded text-sm hover:bg-indigo-700">+ Tambah Data</button>
+        </div>
+
+        <div class="space-y-4">
+            <div>
+                <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Page ID / Filename</label>
+                <input type="text" x-model="config[activeTab].page" class="w-full p-2 border rounded focus:ring-2 focus:ring-indigo-400 outline-none">
+            </div>
+
+            <template x-if="activeTab === 'kursus'">
+                <div class="space-y-4">
+                    <input type="text" x-model="config.kursus.nama" placeholder="Nama Kursus" class="w-full p-2 border rounded text-sm">
+                    <template x-for="(item, index) in config.kursus.data" :key="index">
+                        <div class="p-4 border rounded bg-slate-50 relative">
+                            <button @click="removeItem(index)" class="absolute top-2 right-2 text-red-500 text-xs">✕</button>
+                            <div class="grid grid-cols-2 gap-2 mb-2">
+                                <input type="text" x-model="item.id" placeholder="ID (m01)" class="p-2 border rounded text-xs">
+                                <input type="text" x-model="item.name" placeholder="Judul Modul" class="p-2 border rounded text-xs">
+                            </div>
+                            <input type="text" x-model="item.desc" placeholder="Deskripsi Singkat" class="w-full p-2 border rounded text-xs mb-2">
+                            <div class="grid grid-cols-2 gap-2">
+                                <select x-model="item.materi" class="p-2 border rounded text-xs">
+                                    <option value="renderPdf">PDF Renderer</option>
+                                    <option value="renderMp4">Video Renderer</option>
+                                </select>
+                                <input type="text" x-model="item.url" placeholder="URL File" class="p-2 border rounded text-xs">
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+            <template x-if="activeTab === 'kuis'">
+                <div class="space-y-4">
+                    <template x-for="(item, index) in config.kuis.data" :key="index">
+                        <div class="p-4 border rounded bg-slate-50 relative">
+                            <button @click="removeItem(index)" class="absolute top-2 right-2 text-red-500 text-xs">✕</button>
+                            <div class="grid grid-cols-4 gap-2 mb-2">
+                                <input type="text" x-model="item.set" placeholder="Set" class="p-2 border rounded text-xs">
+                                <input type="text" x-model="item.answer" placeholder="Jawaban Benar" class="p-2 border rounded text-xs col-span-3">
+                            </div>
+                            <textarea x-model="item.question" placeholder="Pertanyaan" class="w-full p-2 border rounded text-xs mb-2"></textarea>
+                            <div class="grid grid-cols-2 gap-2">
+                                <input type="text" x-model="item.choice_a" placeholder="Opsi A" class="p-2 border rounded text-xs">
+                                <input type="text" x-model="item.choice_b" placeholder="Opsi B" class="p-2 border rounded text-xs">
+                                <input type="text" x-model="item.choice_c" placeholder="Opsi C" class="p-2 border rounded text-xs">
+                                <input type="text" x-model="item.choice_d" placeholder="Opsi D" class="p-2 border rounded text-xs">
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+            <template x-if="activeTab === 'cert'">
+                <div class="space-y-4">
+                    <template x-for="(item, index) in config.cert.data" :key="index">
+                        <div class="p-4 border rounded bg-slate-50 relative">
+                            <button @click="removeItem(index)" class="absolute top-2 right-2 text-red-500 text-xs">✕</button>
+                            <div class="grid grid-cols-2 gap-2 mb-2">
+                                <input type="text" x-model="item.kredensial" placeholder="No Kredensial" class="p-2 border rounded text-xs">
+                                <input type="text" x-model="item.peserta" placeholder="Nama Peserta" class="p-2 border rounded text-xs">
+                            </div>
+                            <input type="text" x-model="item.kursus" placeholder="Nama Kursus" class="w-full p-2 border rounded text-xs mb-2">
+                            <div class="grid grid-cols-2 gap-2">
+                                <input type="text" x-model="item.nilai" placeholder="Grade (A/B/C)" class="p-2 border rounded text-xs">
+                                <input type="text" x-model="item.tanggal" placeholder="Tanggal Terbit" class="p-2 border rounded text-xs">
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </aside>
+
+    <main class="w-1/2 h-full bg-slate-900 p-6 flex flex-col">
+        <div class="flex justify-between items-center mb-4 text-white font-mono">
+            <h2 class="text-sm text-slate-400">// Preview: <span x-text="config[activeTab].page"></span>.json</h2>
+            <button @click="copyToClipboard" class="bg-slate-700 hover:bg-slate-600 text-xs px-3 py-1 rounded transition">Copy JSON</button>
+        </div>
+        <textarea
+            x-ref="jsonOutput"
+            readonly
+            class="w-full flex-1 bg-slate-800 text-emerald-400 font-mono text-xs p-4 rounded-lg border border-slate-700 outline-none resize-none"
+            :value="JSON.stringify(config[activeTab], null, 2)"
+        ></textarea>
+    </main>
+
+</div>
+
+<script>
+    function kursusApp() {
+        return {
+            activeTab: 'kursus',
+            config: {
+                kursus: {
+                    "page": "pbo-kursus-v1",
+                    "nama": "kursus PBO",
+                    "data": [
+                        { "id": "m01", "name": "Modul 1", "desc": "Konsep Class", "materi": "renderPdf", "icon": "code/32", "url": "data/pdf/pdf01.pdf" }
+                    ]
+                },
+                kuis: {
+                    "page": "quiz-v1",
+                    "data": [
+                        { "set": "1", "question": "1+1?", "choice_a": "2", "choice_b": "3", "choice_c": "4", "choice_d": "5", "answer": "2" }
+                    ]
+                },
+                cert: {
+                    "page": "cert-v1",
+                    "data": [
+                        { "kredensial": "202509080101", "peserta": "Roy Mubarak", "kursus": "Enkripsi Blockchain", "nilai": "B", "tanggal": "08 Sep 2025" }
+                    ]
+                }
+            },
+
+            addItem() {
+                const target = this.config[this.activeTab].data;
+                if (this.activeTab === 'kursus') {
+                    target.push({ id: "", name: "", desc: "", materi: "renderPdf", icon: "code/32", url: "" });
+                } else if (this.activeTab === 'kuis') {
+                    target.push({ set: "1", question: "", choice_a: "", choice_b: "", choice_c: "", choice_d: "", answer: "" });
+                } else if (this.activeTab === 'cert') {
+                    target.push({ kredensial: "", peserta: "", kursus: "", nilai: "", tanggal: "" });
+                }
+            },
+
+            removeItem(index) {
+                this.config[this.activeTab].data.splice(index, 1);
+            },
+
+            importJSON(event) {
+                const file = event.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    try {
+                        const parsed = JSON.parse(e.target.result);
+                        // Deteksi otomatis tipe JSON berdasarkan key
+                        if (parsed.nama && Array.isArray(parsed.data)) {
+                            this.activeTab = 'kursus';
+                            this.config.kursus = parsed;
+                        } else if (parsed.data && parsed.data[0]?.question) {
+                            this.activeTab = 'kuis';
+                            this.config.kuis = parsed;
+                        } else if (parsed.data && parsed.data[0]?.kredensial) {
+                            this.activeTab = 'cert';
+                            this.config.cert = parsed;
+                        }
+                    } catch (err) { alert("Format JSON tidak valid!"); }
+                };
+                reader.readAsText(file);
+            },
+
+            downloadJSON() {
+                const data = this.config[this.activeTab];
+                const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `${data.page}.json`;
+                a.click();
+            },
+
+            copyToClipboard() {
+                this.$refs.jsonOutput.select();
+                document.execCommand('copy');
+                alert('JSON copied!');
+            }
+        }
+    }
+</script>
+</body>
+</html>

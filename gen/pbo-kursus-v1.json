@@ -1,0 +1,31 @@
+{
+  "page": "pbo-kursus-v1",
+  "nama": "kursus PBO",
+  "data": [
+    {
+      "id": "m01",
+      "name": "Modul 1",
+      "desc": "Konsep Class",
+      "materi": "renderPdf",
+      "icon": "code/32",
+      "url": "data/pdf/pdf01.pdf"
+    },
+    {
+      "id": "m02",
+      "name": "Modul 2",
+      "desc": "Modul 2",
+      "materi": "renderPdf",
+      "icon": "code/32",
+      "url": "data/pdf/pdf02.pdf"
+    },
+    {
+      "id": "m03",
+      "name": "Modul 3",
+      "desc": "Modul 3",
+      "materi": "renderMp4",
+      "icon": "code/32",
+      "url": "data/video/m03.mp4"
+
+    }
+  ]
+}

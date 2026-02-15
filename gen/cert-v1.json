@@ -1,0 +1,26 @@
+{
+  "page": "cert-v1",
+  "data": [
+    {
+      "kredensial": "202509080101",
+      "peserta": "Roy Mubarak",
+      "kursus": "Enkripsi Blockchain",
+      "nilai": "B",
+      "tanggal": "08 Sep 2025"
+    },
+    {
+      "kredensial": "202509080102",
+      "peserta": "Asruddin",
+      "kursus": "Digital Forensik",
+      "nilai": "B",
+      "tanggal": "08 Sep 2025"
+    },
+    {
+      "kredensial": "202509080103",
+      "peserta": "Wawan Sismadi",
+      "kursus": "Internet of Things (IoT)",
+      "nilai": "B",
+      "tanggal": "08 Sep 2025"
+    }
+  ]
+}

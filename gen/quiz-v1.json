@@ -1,0 +1,23 @@
+{
+  "page": "quiz-v1",
+  "data": [
+    {
+      "set": "1",
+      "question": "1+1?",
+      "choice_a": "2",
+      "choice_b": "3",
+      "choice_c": "4",
+      "choice_d": "5",
+      "answer": "2"
+    },
+    {
+      "set": "1",
+      "question": "Siapa penemu WWW?",
+      "choice_a": "Elon Musk",
+      "choice_b": "Bill Gates",
+      "choice_c": "Tim Berners-Lee",
+      "choice_d": "Mark Zuckerberg",
+      "answer": "Tim Berners-Lee"
+    }
+  ]
+}
