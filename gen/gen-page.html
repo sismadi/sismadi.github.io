@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic JSON Generator - Sismadi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .transition-all { transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+<div x-data="jsonApp()" class="flex h-screen overflow-hidden">
+
+    <aside :class="showPreview ? 'w-1/2' : 'w-full'" class="h-full overflow-y-auto border-r bg-white p-6 shadow-xl transition-all">
+        <div class="flex justify-between items-center mb-6">
+            <div class="flex items-center gap-4">
+                <h1 class="text-xl font-bold text-indigo-600">JSON Editor</h1>
+                <div class="flex gap-2">
+                    <label class="bg-slate-100 hover:bg-slate-200 text-slate-600 px-3 py-1.5 rounded text-sm cursor-pointer border border-slate-300 transition">
+                        <span>Import JSON</span>
+                        <input type="file" accept=".json" class="hidden" @change="importJSON">
+                    </label>
+                    <button @click="downloadJSON" class="bg-emerald-600 text-white px-3 py-1.5 rounded text-sm hover:bg-emerald-700 transition">Download</button>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <button @click="addSection" class="bg-indigo-600 text-white px-3 py-1.5 rounded text-sm hover:bg-indigo-700">+ Add Section</button>
+                <button @click="showPreview = !showPreview" class="bg-slate-800 text-white px-3 py-1.5 rounded text-sm hover:bg-slate-700 transition">
+                    <span x-text="showPreview ? 'Hide Code' : 'Show Code'"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            <div>
+                <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Page Name</label>
+                <input type="text" x-model="config.page" class="w-full p-2 border rounded focus:ring-2 focus:ring-indigo-400 outline-none">
+            </div>
+
+            <hr class="my-6">
+
+            <template x-for="(section, index) in config.data" :key="index">
+                <div class="p-4 border border-slate-200 rounded-lg bg-slate-50 relative mb-6 shadow-sm">
+                    <button @click="removeSection(index)" class="absolute top-2 right-2 text-red-400 hover:text-red-600 font-bold text-sm">✕ Remove</button>
+
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                        <div>
+                            <label class="block text-xs font-bold mb-1 text-slate-500">Section Type</label>
+                            <select x-model="section.section" @change="resetSectionContent(index)" class="w-full p-2 border rounded text-sm bg-white">
+                                <option value="header">Header</option>
+                                <option value="stats">Stats</option>
+                                <option value="progress">Progress</option>
+                                <option value="table">Table</option>
+                                <option value="kursus">Kursus</option>
+                                <option value="csv">CSV / Kuis</option>
+                                <option value="pdf">PDF</option>
+                                <option value="mp4">Video (MP4)</option>
+                                <option value="cert">Certificate</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold mb-1 text-slate-500">Caption</label>
+                            <input type="text" x-model="section.caption" class="w-full p-2 border rounded text-sm bg-white">
+                        </div>
+                    </div>
+
+                    <template x-if="['kursus', 'csv', 'pdf', 'mp4', 'cert'].includes(section.section)">
+                        <div class="mb-4">
+                            <label class="block text-xs font-bold mb-1 text-indigo-500 uppercase">Resource URL</label>
+                            <input type="text" x-model="section.url" class="w-full p-2 border rounded text-sm bg-white font-mono text-indigo-600">
+                        </div>
+                    </template>
+
+                    <template x-if="section.section === 'header'">
+                        <div class="bg-white p-3 rounded border space-y-4">
+                            <div class="grid grid-cols-2 gap-2">
+                                <input type="text" x-model="section.content.nama" placeholder="Nama" class="w-full p-2 border rounded text-sm">
+                                <input type="text" x-model="section.content.tagline" placeholder="Tagline" class="w-full p-2 border rounded text-sm">
+                            </div>
+                            <textarea x-model="section.content.deskripsi" placeholder="Deskripsi" class="w-full p-2 border rounded text-sm"></textarea>
+                            <div class="grid grid-cols-2 gap-2 bg-slate-50 p-2 rounded border">
+                                <template x-for="k in ['icon', 'icon1', 'icon2', 'icon3']" :key="k">
+                                    <div>
+                                        <label class="text-[9px] font-bold text-slate-400 uppercase" x-text="k"></label>
+                                        <input type="text" x-model="section.content[k]" class="w-full p-1 border rounded text-xs">
+                                    </div>
+                                </template>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <label class="text-[10px] font-bold text-slate-500 uppercase">Header CTA</label>
+                                    <button @click="section.content.cta.push({text:'', url:'', icon:''})" class="text-[10px] bg-indigo-500 text-white px-2 py-1 rounded">+ CTA</button>
+                                </div>
+                                <template x-for="(cta, cidx) in section.content.cta" :key="cidx">
+                                    <div class="p-2 bg-indigo-50 rounded border border-indigo-100 space-y-1 relative">
+                                        <button @click="section.content.cta.splice(cidx, 1)" class="absolute top-1 right-1 text-red-400 text-xs">✕</button>
+                                        <div class="grid grid-cols-3 gap-1">
+                                            <input type="text" x-model="cta.text" placeholder="Text" class="p-1 border rounded text-[10px]">
+                                            <div class="flex flex-col">
+                                                <button @click="toggleKeySimple(cta, 'url', 'modal')" class="text-[8px] text-indigo-500 underline text-left" x-text="cta.modal !== undefined ? 'to URL' : 'to Modal'"></button>
+                                                <input type="text" x-model="cta[cta.modal !== undefined ? 'modal' : 'url']" class="p-1 border rounded text-[10px]">
+                                            </div>
+                                            <input type="text" x-model="cta.icon" placeholder="Icon" class="p-1 border rounded text-[10px]">
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </template>
+
+                    <template x-if="['kursus', 'csv', 'pdf', 'mp4', 'cert'].includes(section.section)">
+                        <div class="space-y-2 mt-2">
+                            <div class="flex justify-between items-center">
+                                <label class="text-[10px] font-bold text-slate-500 uppercase">Section Buttons</label>
+                                <button @click="section.btn.push({text:'', url:''})" class="text-[10px] bg-emerald-500 text-white px-2 py-1 rounded">+ Add Button</button>
+                            </div>
+                            <template x-for="(btn, bidx) in section.btn" :key="bidx">
+                                <div class="grid grid-cols-2 gap-2 p-2 bg-white rounded border relative shadow-sm">
+                                    <button @click="section.btn.splice(bidx, 1)" class="absolute -top-1 -right-1 bg-red-500 text-white w-4 h-4 rounded-full text-[10px] flex items-center justify-center">✕</button>
+                                    <input type="text" x-model="btn.text" placeholder="Label" class="p-1 border rounded text-xs">
+                                    <div class="flex flex-col">
+                                        <button @click="toggleKeySimple(btn, 'url', 'modal')" class="text-[8px] text-indigo-500 underline text-left" x-text="btn.modal !== undefined ? 'to URL' : 'to Modal'"></button>
+                                        <input type="text" x-model="btn[btn.modal !== undefined ? 'modal' : 'url']" class="p-1 border rounded text-xs">
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+
+                    <template x-if="section.section === 'stats'">
+                        <div class="space-y-3">
+                            <div class="grid grid-cols-2 gap-3 p-3 bg-indigo-50 rounded border border-indigo-100">
+                                <input type="text" x-model="section.control" placeholder="Control" class="w-full p-1 border rounded text-xs bg-white">
+                                <input type="text" x-model="section.filter" placeholder="Filter Key" class="w-full p-1 border rounded text-xs bg-white">
+                            </div>
+                            <template x-for="(item, itemIndex) in section.content" :key="itemIndex">
+                                <div class="bg-white p-3 border rounded shadow-sm relative space-y-2">
+                                    <button @click="removeItem(index, itemIndex)" class="absolute top-1 right-2 text-red-300 text-[10px]">✕</button>
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <input type="text" x-model="item[section.filter]" placeholder="Filter Value" class="p-1 border rounded text-xs">
+                                        <input type="text" x-model="item.title" placeholder="Title" class="p-1 border rounded text-xs">
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <div class="flex flex-col">
+                                            <button @click="toggleKeySimple(item, 'icon', 'img')" class="text-[8px] text-indigo-500 underline text-left" x-text="item.img !== undefined ? 'to Icon' : 'to Img'"></button>
+                                            <input type="text" x-model="item[item.img !== undefined ? 'img' : 'icon']" class="p-1 border rounded text-xs">
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <button @click="toggleKeySimple(item, 'url', 'modal')" class="text-[8px] text-indigo-500 underline text-left" x-text="item.modal !== undefined ? 'to URL' : 'to Modal'"></button>
+                                            <input type="text" x-model="item[item.modal !== undefined ? 'modal' : 'url']" class="p-1 border rounded text-xs">
+                                        </div>
+                                    </div>
+                                    <input type="text" x-model="item.desc" placeholder="Description" class="w-full p-1 border rounded text-xs">
+                                </div>
+                            </template>
+                            <button @click="addItem(index)" class="w-full py-1 border-2 border-dashed border-slate-300 text-slate-400 text-xs hover:text-indigo-400">+ Add Stats Item</button>
+                        </div>
+                    </template>
+
+                    <template x-if="section.section === 'progress'">
+                        <div class="space-y-2">
+                            <template x-for="(item, itemIndex) in section.content" :key="itemIndex">
+                                <div class="grid grid-cols-4 gap-1 bg-white p-2 border rounded items-center">
+                                    <input type="text" x-model="item.label" placeholder="Label" class="p-1 border rounded text-xs col-span-1">
+                                    <input type="number" x-model.number="item.percent" class="p-1 border rounded text-xs">
+                                    <input type="text" x-model="item.value" placeholder="Status" class="p-1 border rounded text-xs">
+                                    <button @click="removeItem(index, itemIndex)" class="text-red-400 text-xs">✕</button>
+                                </div>
+                            </template>
+                            <button @click="addItem(index)" class="w-full py-1 border-2 border-dashed border-slate-300 text-xs text-slate-400 hover:text-indigo-400">+ Add Progress</button>
+                        </div>
+                    </template>
+
+                    <template x-if="section.section === 'table'">
+                        <div class="space-y-3">
+                            <div class="grid grid-cols-2 gap-2 p-2 bg-slate-100 rounded border">
+                                <input type="text" x-model="section.control" class="p-1 border rounded text-xs bg-white">
+                                <input type="text" x-model="section.filter" class="p-1 border rounded text-xs bg-white">
+                            </div>
+                            <div class="p-2 bg-slate-200 border rounded flex flex-wrap gap-1 items-center">
+                                <template x-for="col in Object.keys(section.content[0] || {})" :key="col">
+                                    <span class="bg-white px-2 py-0.5 rounded border text-[10px] font-mono flex items-center gap-1">
+                                        <span x-text="col"></span>
+                                        <button @click="removeColumn(index, col)" class="text-red-500">✕</button>
+                                    </span>
+                                </template>
+                                <button @click="addColumn(index)" class="text-[10px] bg-slate-700 text-white px-2 py-0.5 rounded">+ Col</button>
+                            </div>
+                            <template x-for="(item, itemIndex) in section.content" :key="itemIndex">
+                                <div class="flex gap-1 items-center bg-white p-2 border rounded shadow-sm">
+                                    <template x-for="key in Object.keys(item)" :key="key">
+                                        <input type="text" x-model="item[key]" class="w-full p-1 border rounded text-[10px]">
+                                    </template>
+                                    <button @click="removeItem(index, itemIndex)" class="text-red-400 p-1">✕</button>
+                                </div>
+                            </template>
+                            <button @click="addItem(index)" class="w-full py-1 border-2 border-dashed border-slate-300 text-xs text-slate-400 hover:text-indigo-400">+ Add Row</button>
+                        </div>
+                    </template>
+
+                </div>
+            </template>
+        </div>
+    </aside>
+
+    <main x-show="showPreview" x-transition class="w-1/2 h-full bg-slate-900 p-6 flex flex-col">
+        <div class="flex justify-between items-center mb-4 text-white font-mono">
+            <h2 class="text-sm text-slate-400">// <span x-text="config.page"></span>.json</h2>
+            <button @click="copyToClipboard" class="bg-slate-700 hover:bg-slate-600 text-xs px-3 py-1 rounded transition">Copy JSON</button>
+        </div>
+        <textarea
+            x-ref="jsonOutput"
+            readonly
+            class="w-full flex-1 bg-slate-800 text-emerald-400 font-mono text-xs p-4 rounded-lg border border-slate-700 outline-none resize-none"
+            :value="JSON.stringify(config, null, 2)"
+        ></textarea>
+    </main>
+
+</div>
+
+<script>
+    function jsonApp() {
+        return {
+            showPreview: true,
+            config: {
+                "page": "home",
+                "data": [
+                    {
+                        "section": "header",
+                        "caption": "",
+                        "content": {
+                            "nama": "Sismadi",
+                            "icon": "?medsos/150/skyblue",
+                            "icon1": "?twitter/150/#a7c957-#5e7e13",
+                            "icon2": "?whatsapp/100/#a7c957",
+                            "icon3": "?facebook/50",
+                            "tagline": "tagline",
+                            "deskripsi": "deskripsi.",
+                            "cta": [
+                                { "text": "Lihat Solusi", "url": "#dashboard", "icon": "?code/32x32" },
+                                { "text": "Konsultasi Sistem", "modal": "https://wa.me/xxx", "icon": "?whatsapp.jpg" }
+                            ]
+                        }
+                    },
+                    {
+                        "section": "stats",
+                        "caption": "Layanan Utama",
+                        "control": "multi",
+                        "filter": "category",
+                        "content": [
+                            { "category":"angka", "url":"page/web/1", "title": "1", "desc": "1", "icon": "code/100" },
+                            { "category":"angka", "modal":"page/web/2", "title": "2", "desc": "1", "img": "code/100" },
+                            { "category":"huruf", "url":"page/web/2", "title": "2", "desc": "1", "icon": "code/100" }
+                        ]
+                    },
+                    {
+                        "section": "progress",
+                        "caption": "Update Terkini",
+                        "content": [
+                            { "label": "UI Kit Update", "percent": 95, "value": "Finalizing" },
+                            { "label": "SPA Boilerplate", "percent": 100, "value": "Ready" }
+                        ]
+                    },
+                    {
+                        "section": "table",
+                        "caption": "Produk",
+                        "control": "multi",
+                        "filter": "status",
+                        "content": [
+                            { "Kursus": "Dashboard SPA React", "Status": "Terbaru", "Tanggal": "Februari 2026" },
+                            { "Kursus": "Icon Pack Series 01", "Status": "Update", "Tanggal": "Januari 2026" }
+                        ]
+                    },
+                    {
+                        "section": "kursus",
+                        "caption": "PBO",
+                        "url": "data/pbo-kursus.json",
+                        "btn": [ { "text": "Modul Intro", "url": "?lms/web/kursus/pbo-m01" } ]
+                    },
+                    {
+                        "section": "csv",
+                        "caption": "Kuis",
+                        "url": "data/kuis.json",
+                        "btn": [
+                            { "text": "Kembali", "url": "materi_list" },
+                            { "text": "menu", "modal": "menu" }
+                        ]
+                    },
+                    {
+                        "section": "pdf",
+                        "caption": "PDF",
+                        "url": "data/pdf01.pdf",
+                        "btn": [
+                            { "text": "Kembali", "url": "materi_list" },
+                            { "text": "Kembali", "modal": "materi_list" }
+                        ]
+                    },
+                    {
+                        "section": "mp4",
+                        "caption": "PDF",
+                        "url": "data/vid.mp4",
+                        "btn": [
+                            { "text": "Kembali", "url": "materi_list" },
+                            { "text": "Kembali", "modal": "materi_list" }
+                        ]
+                    },
+                    {
+                        "section": "cert",
+                        "caption": "Sertifikat",
+                        "url": "data/cert.json",
+                        "btn": [
+                            { "text": "Kembali", "url": "materi_list" },
+                            { "text": "Kembali", "modal": "materi_list" }
+                        ]
+                    }
+                ]
+            },
+
+            addSection() {
+                this.config.data.push({
+                    section: "kursus",
+                    caption: "New Module",
+                    url: "data/file.json",
+                    btn: [{ text: "Open", url: "" }]
+                });
+            },
+
+            removeSection(index) {
+                this.config.data.splice(index, 1);
+            },
+
+            resetSectionContent(index) {
+                const sec = this.config.data[index];
+                if (sec.section === 'header') {
+                    sec.content = { nama: "", tagline: "", deskripsi: "", icon: "", icon1: "", icon2: "", icon3: "", cta: [] };
+                    delete sec.url; delete sec.btn;
+                } else if (['kursus', 'csv', 'pdf', 'mp4', 'cert'].includes(sec.section)) {
+                    sec.url = "";
+                    sec.btn = [{ text: "Action", url: "" }];
+                    delete sec.content; delete sec.control;
+                } else if (sec.section === 'stats') {
+                    sec.control = "multi"; sec.filter = "category";
+                    sec.content = [{ category: "", title: "", desc: "", icon: "" }];
+                } else if (sec.section === 'progress') {
+                    sec.content = [{ label: "", percent: 0, value: "" }];
+                } else if (sec.section === 'table') {
+                    sec.control = "multi"; sec.filter = "status";
+                    sec.content = [{ "Kursus": "", "Status": "", "Tanggal": "" }];
+                }
+            },
+
+            addItem(sectionIndex) {
+                const section = this.config.data[sectionIndex];
+                const baseItem = JSON.parse(JSON.stringify(section.content[0] || {}));
+                Object.keys(baseItem).forEach(k => baseItem[k] = (typeof baseItem[k] === 'number') ? 0 : "");
+                section.content.push(baseItem);
+            },
+
+            removeItem(sectionIndex, itemIndex) {
+                this.config.data[sectionIndex].content.splice(itemIndex, 1);
+            },
+
+            toggleKeySimple(obj, keyA, keyB) {
+                if (obj[keyA] !== undefined) {
+                    obj[keyB] = obj[keyA];
+                    delete obj[keyA];
+                } else {
+                    obj[keyA] = obj[keyB];
+                    delete obj[keyB];
+                }
+            },
+
+            addColumn(index) {
+                const name = prompt("Nama kolom baru:");
+                if (name) this.config.data[index].content.forEach(row => row[name] = "");
+            },
+
+            removeColumn(index, colName) {
+                this.config.data[index].content.forEach(row => delete row[colName]);
+            },
+
+            downloadJSON() {
+                const blob = new Blob([JSON.stringify(this.config, null, 2)], {type: 'application/json'});
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `${this.config.page}.json`;
+                a.click();
+            },
+
+            importJSON(event) {
+                const file = event.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    try { this.config = JSON.parse(e.target.result); }
+                    catch (err) { alert("Format JSON tidak valid!"); }
+                };
+                reader.readAsText(file);
+            },
+
+            copyToClipboard() {
+                this.$refs.jsonOutput.select();
+                document.execCommand('copy');
+                alert('JSON copied!');
+            }
+        }
+    }
+</script>
+</body>
+</html>
