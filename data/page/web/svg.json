@@ -18,10 +18,10 @@
     "section": "stats",
     "caption": "Services",
     "content": [
-      { "title": "Minimal", "desc": "Belajar React, Vue, Node.js dari nol sampai siap kerja.", "svg": "medsos1/10" },
-      { "title": "Solid", "desc": "Belajar React, Vue, Node.js dari nol sampai siap kerja.", "svg": "medsos2/10" },
-      { "title": "Gradient", "desc": "Belajar React, Vue, Node.js dari nol sampai siap kerja.", "svg": "medsos3/10/green-yellow" },
-      { "title": "Neumorph", "desc": "Belajar React, Vue, Node.js dari nol sampai siap kerja.", "svg": "medsos4/10/green-yellow" }
+      { "title": "Minimal", "desc": "Flat Icons Minimal", "svg": "medsos1/10" },
+      { "title": "Solid", "desc": "Flat Icons Minimal.", "svg": "medsos2/10" },
+      { "title": "Gradient", "desc": "Flat Icons Minimal.", "svg": "medsos3/10/green-yellow" },
+      { "title": "Neumorph", "desc": "Flat 2.0 Icons Minimal", "svg": "medsos4/10/green-yellow" }
     ]
   },
 
