@@ -153,6 +153,20 @@ opacity: 0.2 !important;
       object-fit: cover;
   }
 
+.card .svg svg {
+/* height: 100px; */
+width: 120px;
+z-index: 1;
+position: absolute;
+bottom: -30px;
+right: -30px;
+stroke: var(--pDarkColor);
+display: inline-block;
+transform: rotate(-15deg) !important;
+opacity: 0.2 !important;
+}
+
+
 @keyframes pulse-effect {
   0% {transform: scale(1);}
   50% {transform: scale(1.05);}
@@ -484,3 +498,4 @@ z-index: 100;
 .menu-item {display: block; padding: 10px 15px; text-decoration: none; color: #333;}
 .menu-item:hover {background-color: #f1f1f1;}
 .delete-action { color: red;}
+
