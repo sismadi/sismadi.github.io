@@ -614,7 +614,8 @@ ${user.icon3 ? `<div class="parallax-layer icon-tw"><img data-src="${user.icon3}
         return items.map(item => `
         <div class="col-1-${step}">
             <div class="card shadow" onclick="${item.url ? `navigate('${item.url}')` : ''} ${item.modal ? `path('${item.modal}')` : ''}">
-                ${item.icon ? `<img data-src="${item.icon}" >` : ''}
+            ${item.icon ? `<div class="svg img"><img data-src="${item.icon}" ></div>` : ''}
+            ${item.svg ? `<img data-src="${item.svg}" >` : ''}
                 ${item.img ? `<img class="img" src="${item.img}" alt="${item.nama || item.img}" >`:'' }
                 <strong>${item.nama || item.title || item.name}</strong>
                 <span>${item.kategori? item.kategori : ''}</span>
@@ -623,6 +624,7 @@ ${user.icon3 ? `<div class="parallax-layer icon-tw"><img data-src="${user.icon3}
             </div>
         </div>`).join('');
     },
+
 
     renderTable: function(data) {
         if (!data || data.length === 0) return "<p>Data tidak tersedia.</p>";
