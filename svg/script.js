@@ -1,6 +1,6 @@
 
 (function() {
-  let json = '/svg/data.json';
+  let json = 'https://sismadi.com/svg/data.json';
   let cachedData = null;
     let isFetching = false;
 
@@ -78,7 +78,7 @@ const getCSSVarValue = (varName) => {
             });
         }
 
-        const svgStr = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}" width="${width}" height="${height}" class="di-svg">
+        const svgStr = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}" width="${width}" height="${height}" class="di-svg ">
             ${defs}<g class="${animation || ''}">${svgContent}</g></svg>`;
 
         return new DOMParser().parseFromString(svgStr, 'image/svg+xml').documentElement;
