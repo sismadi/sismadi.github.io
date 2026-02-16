@@ -1,10 +1,10 @@
 :root {
   --pColor: #0C5175;
-  --pColor: red;
+  /* --pColor: red; */
 --pLightColor: blue;
 }
 
-.whatsapp-theme {
+.whatsapp-themes {
 --pLightColor: #25D366;
 --pColor: #075E54;
 }
@@ -55,3 +55,21 @@ filter: drop-shadow(0 0 5px white);
 @keyframes floatIco { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
 @keyframes pulseIco { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.10); opacity: 0.7;}100% {transform: scale(1); opacity: 1;}
 }
+
+
+.svg-medsos1, .svg-medsos2,.svg-medsos3{ filter: none !important;}
+
+.svg-medsos1:hover .svg-p,.svg-medsos3:hover .svg-p {
+  animation: none !important;
+  stroke-dasharray: none !important;
+  stroke-dashoffset: none !important;
+  filter: none !important;
+}
+
+.svg-medsos1 path{
+stroke: #6a994e;
+stroke-width: 1;
+filter: none !important;
+}
+.svg-medsos2 path {stroke: none;}
+.svg-kupat path {stroke-width: 0.2;}

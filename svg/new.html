@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Dynamic SVG Pro - Combined Library</title>
+<link rel="stylesheet" type="text/css" href="style.css" >
+<style>
+  /* Tambahan gaya agar tampilan lebih rapi */
+  .container { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+  .icon-wrapper { text-align: center; border: 1px solid #eee; padding: 10px; border-radius: 8px; }
+  .icon-name { display: block; font-size: 10px; margin-top: 5px; color: #666; }
+</style>
+</head>
+<body>
+
+<h2>Semua Ikon (Gabungan data.json & data1.json)</h2>
+<div class="container" id="content"></div>
+
+<hr>
+
+<h2>Contoh Custom Size & Color</h2>
+<div class="container">
+  <img data-src="?twitter/150x120" alt="Twitter Large">
+  <img data-src="?twitter/120x120/red" alt="Twitter Red">
+  <img data-src="?twitter/120x120/red-yellow" alt="Twitter Gradient">
+</div>
+<img data-src="?medsos1/200x150/none/1" alt="Medsos Stroke Only">
+<img data-src="?medsos2/200x150/none/1" alt="Medsos Stroke Only">
+
+
+<script src="script.js"></script>
+<script>
+// Daftar ikon hardcoded manual
+const manualIcons = {
+    "pen": "M16 3 21 8 8 21 3 21 3 16 16 3",
+    "medsos2": {
+        "viewBox": "0 0 100 50",
+        "composite": true,
+        "layers": [
+            { "ref": "twitter", "pos": "0,0", "scale": "1", "fill": "none", "stroke": "black", "stroke-width": "1" },
+            { "ref": "whatsapp", "pos": "25,0", "scale": "1", "fill": "none", "stroke": "red", "stroke-width": "1" }
+        ]
+    }
+};
+
+async function loadIcons() {
+    try {
+        const [res1, res2] = await Promise.all([fetch('data.json'), fetch('data1.json')]);
+        const data1 = await res1.json();
+        const data2 = await res2.json();
+
+        // Gabungkan JSON eksternal + Manual Icons
+        const allIcons = { ...data1, ...data2, ...manualIcons };
+
+        // Tampilkan semua
+        let out = "";
+        Object.entries(allIcons).forEach(([name, config]) => {
+            out += `<div class="icon-wrapper">
+                      <img data-src="?${name}/60x60" alt="${name}">
+                      <span class="icon-name">${name}</span>
+                    </div>`;
+        });
+        document.getElementById('content').innerHTML = out;
+
+        // Daftarkan ke library script.js
+        Object.entries(allIcons).forEach(([name, config]) => {
+            window.addSVGLibrary(name, config);
+        });
+
+    } catch (e) { console.error(e); }
+}
+
+loadIcons();
+</script>
+</script>
+</body>
+</html>
