@@ -94,7 +94,7 @@ const getCSSVarValue = (varName) => {
         if (cachedData && cachedData[id]) {
             const svg = generateSVGElement(id, cachedData[id], szRaw, col, opa, anim);
             if (img.id) svg.id = img.id;
-            svg.setAttribute('class', (img.className ? img.className + ' ' : '') + 'di-svg loaded svg-${id}');
+            svg.setAttribute('class', (img.className ? img.className + ' ' : '') + `di-svg loaded svg-${id}`);
             img.setAttribute('data-loaded', 'true');
             img.parentNode.replaceChild(svg, img);
         }
