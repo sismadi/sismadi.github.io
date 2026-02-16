@@ -18,7 +18,7 @@
     "section": "stats",
     "caption": "Services",
     "content": [
-      { "title": "Fasion", "desc": "Belajar React, Vue, Node.js dari nol sampai siap kerja.", "img": "data/asset/icons.jpg" },
+      { "title": "Fasion", "desc": "Belajar React, Vue, Node.js dari nol sampai siap kerja.", "svg": "?medsos1/200x100" },
       { "title": "Edukasi", "desc": "Belajar React, Vue, Node.js dari nol sampai siap kerja.", "img": "data/asset/icons.jpg" },
       { "title": "Travel", "desc": "Belajar React, Vue, Node.js dari nol sampai siap kerja.", "img": "data/asset/icons.jpg" },
       { "title": "Hotel", "desc": "Belajar React, Vue, Node.js dari nol sampai siap kerja.", "img": "data/asset/icons.jpg" }
@@ -32,8 +32,8 @@
     "content": [
       { "name": "GitHub", "icon": "?github/150x150/black" },
       { "name": "LinkedIn", "icon": "?linkedin/150x150/blue" },
-      { "name": "YouTube", "icon": "?x/150x150/black" },
-      { "name": "Discord", "icon": "?twitter/150x150" }
+      { "name": "YouTube", "icon": "?youtube/150x150/red" },
+      { "name": "Twitter", "icon": "?twitter/150x150" }
 
   ]
   }

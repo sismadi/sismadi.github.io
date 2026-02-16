@@ -4,9 +4,9 @@
       "section": "stats",
       "caption": "Inventaris Aset",
       "content": [
-        { "id": 1, "nama": "Web Templates", "isi": "45", "icon": "?setting/150x150", "url": "lms/kursus/kursus/1" },
-        { "id": 2, "nama": "SVG Icons + Images", "isi": "512", "icon": "?setting/150x150", "url": "lms/sertifikat/sertifikat/1" },
-        { "id": 3, "nama": "Web Starter Kit SPA", "isi": "15", "icon": "?setting/150x150", "url": "lms/kuis/kuis/1" }
+        { "id": 1, "nama": "Web Templates", "isi": "45", "icon": "?code/150x150", "url": "lms/kursus/kursus/1" },
+        { "id": 2, "nama": "SVG Icons + Images", "isi": "512", "icon": "?svg/150x150", "url": "lms/sertifikat/sertifikat/1" },
+        { "id": 3, "nama": "Web Starter Kit SPA", "isi": "15", "icon": "?app/150x150", "url": "lms/kuis/kuis/1" }
       ]
     },
     {

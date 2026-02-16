@@ -19,9 +19,9 @@
       "section": "stats",
       "caption": "Visi & Keahlian",
       "content": [
-        { "icon": "?code/150", "title": "Solusi Bisnis", "desc": "Membangun LMS, POS, dan Sistem Inventory dengan alur kerja intuitif." },
+        { "icon": "?app/150", "title": "Solusi Bisnis", "desc": "Membangun LMS, POS, dan Sistem Inventory dengan alur kerja intuitif." },
         { "icon": "?code/150", "title": "Akselerasi", "desc": "Menyediakan Web Starter Kit SPA untuk memangkas waktu pengembangan tanpa mengorbankan kualitas." },
-        { "icon": "?code/150", "title": "Presisi Visual", "desc": "Kurasi ikon SVG dan template web profesional siap pakai." }
+        { "icon": "?svg/150", "title": "Presisi Visual", "desc": "Kurasi ikon SVG dan template web profesional siap pakai." }
       ]
     },
 
@@ -31,8 +31,8 @@
       "content": [
         { "name": "GitHub", "icon": "?github/150x150/black" },
         { "name": "LinkedIn", "icon": "?linkedin/150x150/blue" },
-        { "name": "YouTube", "icon": "?x/150x150/black" },
-        { "name": "Discord", "icon": "?twitter/150x150" }
+        { "name": "YouTube", "icon": "?youtube/150x150/red" },
+        { "name": "Discord", "icon": "?discord/150x150/#7289DA" }
     ]
     }
 

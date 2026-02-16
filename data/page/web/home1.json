@@ -5,13 +5,17 @@
       "section": "header",
       "caption": "",
       "content": {
-        "nama": "Marhaban Ya Ramadhan",
+        "nama": "Sismadi",
         "icon": "?kupat/150/green-yellow",
         "icon1": "?kupat/150/#a7c957-#5e7e13",
         "icon2": "?kupat/100/green-yellow",
         "icon3": "?kupat/100/green",
-        "tagline": "أللهمَّ سَلِّمْنِي مِنْ رَمَضَانَ، وَسَلِّمْ رَمَضَانَ لِي، وَتَسَلَّمْهُ مِنِّي مُتَقَبَّلًا",
-        "deskripsi": "Ya Allah, sampaikan aku dengan selamat menuju bulan Ramadan. Sampaikanlah Ramadhan kepadaku, serta terimalah bulan Ramadan tersebut dari kami"
+        "tagline": "Arsitek Solusi Digital • Fullstack Developer • AI Engineer",
+        "deskripsi": "Membangun fondasi digital yang kokoh dan efisien. Dari Web Starter Kit hingga sistem enterprise kompleks seperti LMS, POS, dan Finance.",
+        "cta": [
+          { "text": "Lihat Solusi", "link": "#dashboard", "icon": "?code/32x32" },
+          { "text": "Konsultasi Sistem", "link": "https://wa.me/xxx", "icon": "?whatsapp/32x32" }
+        ]
       }
     },
     {
