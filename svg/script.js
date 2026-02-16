@@ -57,7 +57,7 @@ const getCSSVarValue = (varName) => {
             layers.forEach((l, index) => {
                 const d = (l.ref && cachedData[l.ref]) ? cachedData[l.ref] : l.path;
                 const tr = `translate(${l.pos || '0 0'}) scale(${l.scale || 1})`;
-                const isMain = l.main === true || index === 1;
+                const isMain = l.main === true;
                 const layerClass = isMain ? 'svg-p layer-main' : 'svg-p';
 
                 const finalFill = isMain ? fillValue : (l.fill || "#ccc");
