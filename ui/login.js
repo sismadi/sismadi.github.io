@@ -108,15 +108,15 @@ log(loginstatus)
     log(res.email)
 
   out+=`
-    <button id="appBtn" > <img data-src="?menu/20">  apps</button>
-    <button id="profileBtn" > <img data-src="?menu/20"> ${res.email} </button>
+    <button id="appBtn" > <img data-src="menu/20">  apps</button>
+    <button id="profileBtn" > <img data-src="menu/20"> ${res.email} </button>
     `;
 
   } else {
     out+=`
-    <button id="appBtn" ><img data-src="?menu/20"> </button>
-    <button onclick="login.controller.signform()" > <img data-src="?person/20"> Sign in</button>
-    <button onclick="login.controller.regform()" > <img data-src="?pen/20"> Sign up</button>
+    <button id="appBtn" ><img data-src="menu/20"> </button>
+    <button onclick="login.controller.signform()" > <img data-src="person/20"> Sign in</button>
+    <button onclick="login.controller.regform()" > <img data-src="pen/20"> Sign up</button>
 `;
 
   }

@@ -36,7 +36,7 @@ let out = "";
 out = `<div class="row shadow" >`;
 
 Object.entries(data).forEach(([name, path]) => {
-  out += `<img data-src="?${name}/60x60" alt="${name} Solid">`;
+  out += `<img data-src="${name}/60x60" alt="${name} Solid">`;
 });
 out += `</div>`;
 d.gebi('content').innerHTML = out;

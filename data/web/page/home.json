@@ -1,0 +1,36 @@
+{
+  "page": "home",
+  "data": [
+    {
+      "section": "header",
+      "caption": "",
+      "content": {
+        "nama": "Marhaban Ya Ramadhan",
+        "icon": "kupat/150/green-yellow",
+        "icon1": "kupat/150/#a7c957-#5e7e13",
+        "icon2": "kupat/100/green-yellow",
+        "icon3": "kupat/100/green",
+        "tagline": "أللهمَّ سَلِّمْنِي مِنْ رَمَضَانَ، وَسَلِّمْ رَمَضَانَ لِي، وَتَسَلَّمْهُ مِنِّي مُتَقَبَّلًا",
+        "deskripsi": "Ya Allah, sampaikan aku dengan selamat menuju bulan Ramadan. Sampaikanlah Ramadhan kepadaku, serta terimalah bulan Ramadan tersebut dari kami"
+      }
+    },
+    {
+      "section": "stats",
+      "caption": "Layanan Utama",
+      "content": [
+
+        { "url":"web/page/template", "title": "Sistem Enterprise", "desc": "Solusi LMS, POS, Finance, dan Inventory yang adaptif dan real-time.", "icon": "app/150x150" },
+        { "url":"web/page/spa", "title": "Sistem Enterprise", "desc": "Solusi LMS, POS, Finance, dan Inventory yang adaptif dan real-time.", "icon": "code/150x150" },
+        { "url":"web/page/svg","title": "Digital Assets", "desc": "Web Templates dan koleksi SVG Icons yang dioptimalkan untuk performa.", "icon": "svg/150x150" },
+        { "url":"web/page/spa","title": "Starter Kit SPA", "desc": "Boilerplate dengan arsitektur bersih untuk akselerasi pengembangan proyek.", "icon": "code/150x150" }
+      ]
+    },
+    {
+      "section": "stats",
+      "caption": "Tentang Kami",
+      "content": [
+        {"icon": "sismadi/150", "title": "Filosofi", "desc": "Teknologi yang baik adalah yang tidak terlihat, namun membuat segalanya terasa mungkin." }
+      ]
+    }
+  ]
+}

@@ -40,3 +40,8 @@
 .icon-wa { top: 20%; left: 10%; z-index: 1000; }
 .icon-fb { top: 10%; left: 30%; z-index: 2000; }
 .icon-tw { top: 40%; left: 5%; z-index: 1000; }
+
+
+.svg-medsos1 paths {
+fill:none; stroke:black;
+}

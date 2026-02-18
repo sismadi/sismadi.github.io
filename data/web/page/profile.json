@@ -1,0 +1,42 @@
+{
+  "data": [
+    {
+      "section": "header",
+      "caption": "profile",
+      "content": {
+        "nama": "Sismadi",
+        "icon": "sismadi/150x150/skyblue/1/float",
+        "icon2": "sismadi/100/skyblue/1/float",
+        "avatars": "data/web/brand_logo.jpg",
+        "tagline": "Arsitek Solusi Digital & Digital Asset Provider",
+        "deskripsi": "Sismadi menciptakan sistem yang menggerakkan operasional bisnis—dari manajemen gudang hingga akurasi laporan keuangan—memastikan setiap baris kode bekerja dengan setia untuk masa depan Anda.",
+        "cta": [
+          { "text": "Eksplorasi Produk", "link": "#dashboard", "icon": "code/32x32" },
+          { "text": "Jalin Kerjasama", "link": "https://wa.me/xxx", "icon": "whatsapp/32x32" }
+        ]
+      }
+    },
+    {
+      "section": "stats",
+      "caption": "Visi & Keahlian",
+      "content": [
+        { "icon": "app/150", "title": "Solusi Bisnis", "desc": "Membangun LMS, POS, dan Sistem Inventory dengan alur kerja intuitif." },
+        { "icon": "code/150", "title": "Akselerasi", "desc": "Menyediakan Web Starter Kit SPA untuk memangkas waktu pengembangan tanpa mengorbankan kualitas." },
+        { "icon": "svg/150", "title": "Presisi Visual", "desc": "Kurasi ikon SVG dan template web profesional siap pakai." }
+      ]
+    },
+
+    {
+      "section": "stats",
+      "caption": "About Us",
+      "content": [
+        { "name": "GitHub", "icon": "github/150x150/black" },
+        { "name": "LinkedIn", "icon": "linkedin/150x150/blue" },
+        { "name": "YouTube", "icon": "youtube/150x150/red" },
+        { "name": "Discord", "icon": "discord/150x150/#7289DA" }
+    ]
+    }
+
+
+  ]
+}

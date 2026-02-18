@@ -3,7 +3,7 @@ log('donat');
 
 url=function(){
 var slug = window.location.search.replace("?", "").toLowerCase();
-if(!slug) slug = "page/web/home"; // Default route
+if(!slug) slug = "web/page/home"; // Default route
 const [app, func, param] = slug.split("/");
 
 // config.db=dbs;

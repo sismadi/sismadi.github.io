@@ -1,41 +1,67 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>Dynamic SVG Pro</title>
-<link rel="stylesheet" type="text/css" href="style.css" >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Library System</title>
+    <style>
+        :root {
+            --pColor: #0C5175;
+            --pLightColor: #47B4ED;
+            --myCustomColor: #e74c3c;
+        }
+        body { font-family: sans-serif; display: flex; gap: 20px; padding: 40px; flex-wrap: wrap; background: #f4f4f4; }
+        .card { background: white; padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .di-svg { display: block; margin: 0 auto 10px; transition: transform 0.3s; }
+        .di-svg:hover { transform: scale(1.1); }
+
+        /* Contoh Animasi */
+        .spin { animation: spin 2s linear infinite; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+    </style>
 </head>
 <body>
-<div class="container" id="content"></div>
-<div class="container">
-  <img  data-src="?twitter/150x120" alt="Medsos Group">
-  <img  data-src="?twitter/120x120/red" alt="Medsos Group">
-  <img  data-src="?twitter/220x220/red-yellow" alt="Medsos Group">
 
-</div>
+    <div class="card">
+        <img data-src="youtube/40x40/red/1" alt="YT">
+        <p>YouTube (JSON)</p>
+    </div>
 
-<script src="svg.js"></script>
+    <div class="card">
+        <img data-src="discord/40x40/var(--pColor)/0.8" alt="Discord">
+        <p>Discord (JSON)</p>
+    </div>
 
-<script>
+    <div class="card">
+        <img data-src="custom-star/40x40/gold" alt="Star">
+        <p>Manual Icon (JS)</p>
+    </div>
 
-async function loadIcons() {
-try {
-const response = await fetch('svg.json');
-const data = await response.json();
-let out = "";
-Object.entries(data).forEach(([name, path]) => {
-out += `
-<img data-src="?${name}/60x60" alt="${name} Solid">`;
-});
-document.getElementById('content').innerHTML = out;
+    <div class="card">
+        <img data-src="double-box/240" alt="Composite">
+        <p>Composite (JSON)</p>
+    </div>
 
-} catch (error) {
-console.error("Gagal memuat ikon:", error);
-}
-}
-loadIcons();
-</script>
+    <script src="script.js"></script>
+
+    <script>
+        // 1. Memuat gabungan data JSON (data1.json, data2.json, dll)
+        // loadSVGLibraries(['data.json', 'data2.json']);
+        loadSVGLibraries(['data.json']);
+        // loadSVGLibraries(['/al/svg/data1.json']);
+
+        // 2. Menambah icon path tunggal secara manual via JS
+        addIcon('custom-star', "M 12 2 L 15 9 L 22 9 L 16 14 L 18 21 L 12 17 L 6 21 L 8 14 L 2 9 L 9 9 Z");
 
 
+        // 3. Menambah icon jamak (composite) secara manual via JS
+        addIcon('double-box', {
+            viewBox: "0 0 24 24",
+            layers: [
+                { path: "M 2 2 L 10 2 L 10 10 L 2 10 Z", pos: "0,0", fill: "var(--pColor)" },
+                { path: "M 2 2 L 10 2 L 10 10 L 2 10 Z", pos: "12,12", fill: "var(--pLightColor)"  }
+            ]
+        });
+    </script>
 </body>
 </html>

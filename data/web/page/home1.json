@@ -1,0 +1,40 @@
+{
+  "page": "home",
+  "data": [
+    {
+      "section": "header",
+      "caption": "",
+      "content": {
+        "nama": "Sismadi",
+        "icon": "kupat/150/green-yellow",
+        "icon1": "kupat/150/#a7c957-#5e7e13",
+        "icon2": "kupat/100/green-yellow",
+        "icon3": "kupat/100/green",
+        "tagline": "Arsitek Solusi Digital • Fullstack Developer • AI Engineer",
+        "deskripsi": "Membangun fondasi digital yang kokoh dan efisien. Dari Web Starter Kit hingga sistem enterprise kompleks seperti LMS, POS, dan Finance.",
+        "cta": [
+          { "text": "Lihat Solusi", "link": "#dashboard", "icon": "code/32x32" },
+          { "text": "Konsultasi Sistem", "link": "https://wa.me/xxx", "icon": "whatsapp/32x32" }
+        ]
+      }
+    },
+    {
+      "section": "stats",
+      "caption": "Layanan Utama",
+      "content": [
+
+        { "url":"page/web/template", "title": "Sistem Enterprise", "desc": "Solusi LMS, POS, Finance, dan Inventory yang adaptif dan real-time.", "icon": "app/150x150" },
+        { "url":"page/web/spa", "title": "Sistem Enterprise", "desc": "Solusi LMS, POS, Finance, dan Inventory yang adaptif dan real-time.", "icon": "code/150x150" },
+        { "url":"page/web/svg","title": "Digital Assets", "desc": "Web Templates dan koleksi SVG Icons yang dioptimalkan untuk performa.", "icon": "svg/150x150" },
+        { "url":"page/web/materi","title": "Starter Kit SPA", "desc": "Boilerplate dengan arsitektur bersih untuk akselerasi pengembangan proyek.", "icon": "code/150x150" }
+      ]
+    },
+    {
+      "section": "stats",
+      "caption": "Tentang Kami",
+      "content": [
+        {"icon": "sismadi/150", "title": "Filosofi", "desc": "Teknologi yang baik adalah yang tidak terlihat, namun membuat segalanya terasa mungkin." }
+      ]
+    }
+  ]
+}

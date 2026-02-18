@@ -1,0 +1,46 @@
+{"data":[
+  {
+    "section": "header",
+    "caption": "",
+    "content": {
+      "nama": "SVG Icons",
+      "icon": "medsos/150x150/skyblue/0.1",
+      "tagline": "Fullstack Developer • AI Engineer • Data Scientist",
+      "deskripsi": "Akselerasi karier teknologi Anda dengan kurikulum berbasis industri yang dirancang oleh praktisi berpengalaman.",
+      "cta": [
+        { "text": "Lihat Kursus", "link": "#dashboard", "icon": "code/32x32" },
+        { "text": "Konsultasi", "link": "https://wa.me/xxx", "icon": "whatsapp/32x32" }
+      ]
+    }
+  },
+
+  {
+    "section": "stats",
+    "caption": "Services",
+    "content": [
+      { "title": "Minimal", "desc": "Belajar React, Vue, Node.js dari nol sampai siap kerja.", "svg": "medsos1/10" },
+      { "title": "Solid", "desc": "Belajar React, Vue, Node.js dari nol sampai siap kerja.", "svg": "medsos2/10" },
+      { "title": "Gradient", "desc": "Belajar React, Vue, Node.js dari nol sampai siap kerja.", "svg": "medsos3/10/green-yellow" },
+      { "title": "Neumorph", "desc": "Belajar React, Vue, Node.js dari nol sampai siap kerja.", "svg": "medsos4/10/green-yellow" }
+    ]
+  },
+
+
+  {
+    "section": "stats",
+    "caption": "About Us",
+    "content": [
+      { "name": "GitHub", "icon": "github/150x150/black" },
+      { "name": "LinkedIn", "icon": "linkedin/150x150/blue" },
+      { "name": "YouTube", "icon": "x/150x150/black" },
+      { "name": "Discord", "icon": "twitter/150x150" }
+
+  ]
+  }
+
+
+
+
+
+]
+}

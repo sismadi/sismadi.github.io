@@ -119,7 +119,8 @@ cacheCert: null, // Untuk menyimpan data CSV agar tidak fetch berulang
             case 'csv': return ui.renderCsv(block);
             case 'mp4': return ui.renderMp4(block); // Tambahkan case ini
             case 'pdf': return ui.renderPdf(block);
-            case 'side': return ui.renderSideContent(block);
+          case 'side': return ui.renderSideContent(block);
+          case 'btn': return ui.renderButton(block);
             case 'stats':
             case 'table':
                 const state = ui.initState(sectionId, block);
@@ -137,20 +138,6 @@ cacheCert: null, // Untuk menyimpan data CSV agar tidak fetch berulang
         }
     },
 
-    renderSideContent: function(block) {
-        const buttons = Array.isArray(block.btn) ? block.btn : [];
-        // const cap = block.caption ? `<div class="side-title mb-2"><strong>${block.caption}</strong></div>` : '';
-
-        const btnHtml = buttons.map(b => `
-            <div class="row artikel">
-                <button class="row" onclick="navigate('${b.url}')" > ${b.icon ? `<img data-src="${b.icon}">` : ''}
-                    <span>${b.text}</span>
-                </button>
-            </div>`).join('');
-
-            // return `<div class="side-section p-2">${cap} ${btnHtml}</div>`;
-            return `<div class="side-section p-2"> ${btnHtml}</div>`;
-    },
 
     renderCert: function(block) {
             // Gunakan json_url dari profile.json (Data Kuis/Sertifikat)
@@ -598,7 +585,7 @@ ${user.icon3 ? `<div class="parallax-layer icon-tw"><img data-src="${user.icon3}
             <div class="col-3-4">
                 <div class="artikel">
                     <h1>${user.name || user.nama}</h1>
-                    <p><strong>${user.role || user.tagline}</strong></p>
+                    <p><strong>${user.role || user.tagline || ''}</strong></p>
                     <p>${user.bio || user.deskripsi}</p>
                 </div>
                 ${user.cta ? `<div class="artikel mt-4">
@@ -614,17 +601,15 @@ ${user.icon3 ? `<div class="parallax-layer icon-tw"><img data-src="${user.icon3}
         return items.map(item => `
         <div class="col-1-${step}">
             <div class="card shadow" onclick="${item.url ? `navigate('${item.url}')` : ''} ${item.modal ? `path('${item.modal}')` : ''}">
-            ${item.icon ? `<div class="svg img"><img data-src="${item.icon}" ></div>` : ''}
-            ${item.svg ? `<img data-src="${item.svg}" >` : ''}
+                ${item.icon ? `<div class="svg img"><img data-src="${item.icon}" ></div>` : ''}
+                ${item.svg ? `<img data-src="${item.svg}" >` : ''}
                 ${item.img ? `<img class="img" src="${item.img}" alt="${item.nama || item.img}" >`:'' }
                 <strong>${item.nama || item.title || item.name}</strong>
                 <span>${item.kategori? item.kategori : ''}</span>
-
                 <div class="artikel">${item.isi || item.desc || ''}</div>
             </div>
         </div>`).join('');
     },
-
 
     renderTable: function(data) {
         if (!data || data.length === 0) return "<p>Data tidak tersedia.</p>";
@@ -650,45 +635,38 @@ ${user.icon3 ? `<div class="parallax-layer icon-tw"><img data-src="${user.icon3}
             const jsonUrl = block.url;
             const uniqueId = `kursus-${Math.floor(Math.random() * 10000)}`;
             const kursusName = block.caption || "Kursus";
-
             setTimeout(async () => {
                 const container = document.getElementById(uniqueId);
                 if (!container) return;
-
                 try {
                     // Fetch data modul (misal: pbo-modul.json)
                     if (!this.cache[jsonUrl]) {
                         const res = await fetch(jsonUrl);
                         this.cache[jsonUrl] = await res.json();
                     }
-
                     const response = this.cache[jsonUrl];
                     const modules = response.data || [];
                     let step = Math.min(Math.max(modules.length, 1), 4);
-
                     container.innerHTML = `
                         <div class="row shadow">
                             <div class="row">
                                 <h2 class="row">${response.nama || kursusName}</h2>
                                 <span class="row">${modules.length} Modul</span>
                             </div>
-
-                            <div class="row">
+                            </div>
+                            <div class="row card-container">
                                 ${modules.map(m => `
-
                                   <div class="col-1-${step}">
-                                      <div class="card shadow" onclick="${m.id ? `navigate('page/modul/${block.caption.toLowerCase()}-${m.id}')` : ''}">
-                                          ${m.icon ? `<img data-src="${m.icon}" >` : ''}
+                                      <div class="card shadow" onclick="${m.id ? `navigate('kursus/modul/${block.caption.toLowerCase()}-${m.id}')` : ''}">
+                                          ${m.icon ? `<div class="svg img"> <img data-src="${m.icon}" ></div>` : ''}
+                                          ${m.svg ? `<img data-src="${m.svg}" >` : ''}
                                           ${m.img ? `<img class="img" src="${m.img}" alt="${m.nama || m.img}" >`:'' }
                                           <strong>${m.nama || m.title || m.name}</strong>
                                           <div class="artikel">${m.isi || m.desc || ''}</div>
                                       </div>
                                   </div>
-
-
                                 `).join('')}
                             </div>
-                        </div>
                         `;
                 } catch (err) {
                     container.innerHTML = `<div class="p-4 text-red">Gagal memuat modul kursus.</div>`;
@@ -697,5 +675,44 @@ ${user.icon3 ? `<div class="parallax-layer icon-tw"><img data-src="${user.icon3}
 
             return `<div id="${uniqueId}" class="animate-fade-in text-center p-10">Memuat Kurikulum...</div>`;
         },
+
+
+        // Tambahkan di dalam ui = { ... } di app.js
+    renderButton: function(block) {
+        const buttons = Array.isArray(block.btn) ? block.btn : [];
+
+        const btnHtml = buttons.map(b => {
+            // Logika: Jika ada 'modal', gunakan path(). Jika 'url', gunakan navigate().
+            const onclickAction = b.modal ? `path('${b.modal}')` : `navigate('${b.url}')`;
+
+            return `
+                <button class="mr-2" onclick="${onclickAction}">
+                    ${b.icon ? `<img data-src="${b.icon}" style="width:16px; vertical-align:middle; margin-right:5px;">` : ''}
+                    <span>${b.text}</span>
+                </button>`;
+        }).join('');
+
+        return `<div class="gButton mt-4">${btnHtml}</div>`;
+    },
+
+    // Sederhanakan renderSideContent agar menggunakan renderButton juga
+    renderSideContent: function(block) {
+        return `<div class="side-section p-2">${this.renderButton(block)}</div>`;
+    },
+
+
+    renderSideContent2: function(block) {
+        const buttons = Array.isArray(block.btn) ? block.btn : [];
+        // const cap = block.caption ? `<div class="side-title mb-2"><strong>${block.caption}</strong></div>` : '';
+
+        const btnHtml = buttons.map(b => `
+            <div class="row artikel">
+                <button class="row" onclick="navigate('${b.url}')" > ${b.icon ? `<img data-src="${b.icon}">` : ''}
+                    <span>${b.text}</span>
+                </button>
+            </div>`).join('');
+            return `<div class="side-section p-2"> ${btnHtml}</div>`;
+    },
+
 
 };
