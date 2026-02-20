@@ -6,10 +6,10 @@ page: function(id) { ui.renderPage(config.getdata(id)); },
 layout: function(id) {
 
   out=`
-     <button onclick="switchStyleSheet('/al/templates/style-catalog.css');" > <img data-src="code/20"> catalog</button>
-     <button onclick="switchStyleSheet('/al/templates/style-web.css');" > <img data-src="code/20"> web</button>
-     <button onclick="switchStyleSheet('/al/templates/style-blog.css');" > <img data-src="code/20"> blog</button>
-     <button onclick="switchStyleSheet('/al/templates/style-admin.css');" > <img data-src="code/20"> admin</button>
+     <button onclick="switchStyleSheet('/templates/style-catalog.css');" > <img data-src="code/20"> catalog</button>
+     <button onclick="switchStyleSheet('/templates/style-web.css');" > <img data-src="code/20"> web</button>
+     <button onclick="switchStyleSheet('/templates/style-blog.css');" > <img data-src="code/20"> blog</button>
+     <button onclick="switchStyleSheet('/templates/style-admin.css');" > <img data-src="code/20"> admin</button>
      <hr>
      <button onclick="switchStyle('dark-forest');" > <img data-src="code/20"> color1</button>
      <button onclick="switchStyle('green-forest');" > <img data-src="code/20"> color1</button>
