@@ -6,10 +6,10 @@
       "caption": "",
       "content": {
         "nama": "Marhaban Ya Ramadhan",
-        "icon": "kupat/150",
-        "icon1": "kupat/150",
-        "icon2": "kupat/100",
-        "icon3": "kupat/100",
+        "icon": "kupat/150/var(--pColor)-var(--pLightColor)",
+        "icon1": "kupat/150/var(--pColor)-var(--pLightColor)",
+        "icon2": "kupat/100/var(--pColor)-var(--pLightColor)",
+        "icon3": "kupat/100/var(--pColor)-var(--pLightColor)",
         "tagline": "أللهمَّ سَلِّمْنِي مِنْ رَمَضَانَ، وَسَلِّمْ رَمَضَانَ لِي، وَتَسَلَّمْهُ مِنِّي مُتَقَبَّلًا",
         "deskripsi": "Ya Allah, sampaikan aku dengan selamat menuju bulan Ramadan. Sampaikanlah Ramadhan kepadaku, serta terimalah bulan Ramadan tersebut dari kami"
       }

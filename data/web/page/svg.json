@@ -20,8 +20,8 @@
     "content": [
       { "title": "Minimal", "desc": "Belajar React, Vue, Node.js dari nol sampai siap kerja.", "svg": "medsos1/10" },
       { "title": "Solid", "desc": "Belajar React, Vue, Node.js dari nol sampai siap kerja.", "svg": "medsos2/10" },
-      { "title": "Gradient", "desc": "Belajar React, Vue, Node.js dari nol sampai siap kerja.", "svg": "medsos3/10/green-yellow" },
-      { "title": "Neumorph", "desc": "Belajar React, Vue, Node.js dari nol sampai siap kerja.", "svg": "medsos4/10/green-yellow" }
+      { "title": "Gradient", "desc": "Belajar React, Vue, Node.js dari nol sampai siap kerja.", "svg": "medsos3/10/var(--pColor)-var(--pLightColor)" },
+      { "title": "Neumorph", "desc": "Belajar React, Vue, Node.js dari nol sampai siap kerja.", "svg": "medsos4/10/var(--pColor)-var(--pLightColor)" }
     ]
   },
 
