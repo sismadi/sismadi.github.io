@@ -1,0 +1,15 @@
+:root {
+  --pColor:#840032;
+  --pLightColor:#e59500;
+  --pDarkColor:#002642;
+
+
+
+  --pColor: #6a994e;
+  --pLightColor: #a7c957;
+  --pDarkColor: #386641 ;
+
+  --svgLogo: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23a3d5ff33' d='M 6 14 C 5 12 7 2 12 1 C 14 1 17 5 17 6 C 17 6 14 6 14 6 C 14 6 13 4 12 4 C 11 4 10 6 10 6 C 12 5 22 7 23 12 C 23 14 19 17 18 17 C 18 17 18 14 18 14 C 18 14 20 13 20 12 C 20 11 18 10 18 10 C 19 12 17 22 12 23 C 10 23 7 19 7 18 C 7 18 10 18 10 18 C 10 18 11 20 12 20 C 13 20 14 18 14 18 C 12 19 2 17 1 12 C 1 10 5 7 6 7 C 6 7 6 10 6 10 C 6 10 4 11 4 12 C 4 13 6 14 6 14 M 15 15 C 16 13 16 11 15 9 C 13 8 11 8 9 9 C 8 11 8 13 9 15 C 11 16 13 16 15 15'/></svg>");
+}
+
+/* #footer-artikel { display: none; } */

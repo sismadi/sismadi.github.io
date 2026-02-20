@@ -7,6 +7,7 @@
         const cleanVarName = varName.match(/\(([^)]+)\)/)[1].trim();
         const value = getComputedStyle(document.body).getPropertyValue(cleanVarName).trim();
         return value || (cleanVarName === '--pColor' ? '#0C5175' : '#47B4ED');
+
     };
 
     const generateSVGElement = (id, config, size = "24x24", colorParam = "", opacityParam = "", animation = null) => {
@@ -14,8 +15,12 @@
         let viewBox = config.viewBox || "0 0 24 24";
         const gradId = `g-${id}-${Math.random().toString(36).substr(2, 4)}`;
 
-        const defaultColor = getCSSVarValue('var(--pColor)');
-        const defaultColorEnd = getCSSVarValue('var(--pLightColor)');
+        // const defaultColor = getCSSVarValue('var(--pColor)');
+        // const defaultColorEnd = getCSSVarValue('var(--pLightColor)');
+
+        const defaultColor = 'var(--pColor)';
+        const defaultColorEnd = 'var(--pLightColor)';
+
         const activeColor = colorParam || defaultColor;
 
         const isGradient = activeColor.includes('-') && !activeColor.startsWith('var(--');

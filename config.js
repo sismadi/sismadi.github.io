@@ -12,6 +12,8 @@ config={
   cert:'data/lms/cert.png',
   },
 apps: [
+  {icon:"setting",name:"gen JSON",modal:"web/layout/1"},
+
   {icon:"piawai",name:"SVG",url:"web/svg/loadicons/1"},
   {icon:"edu",name:"LMS",url:"lms/web/page/home"},
   {icon:"qrcode",name:"Presensi",url:"/donat/presensi"},

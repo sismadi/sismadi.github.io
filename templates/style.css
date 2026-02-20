@@ -7,7 +7,10 @@
 --pButtonColor: #fff;
 --pPage: #f2f2f2;
 --gInput: #fff;
+
+--svgLogo: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23a3d5ff33' d='M 6 14 C 5 12 7 2 12 1 C 14 1 17 5 17 6 C 17 6 14 6 14 6 C 14 6 13 4 12 4 C 11 4 10 6 10 6 C 12 5 22 7 23 12 C 23 14 19 17 18 17 C 18 17 18 14 18 14 C 18 14 20 13 20 12 C 20 11 18 10 18 10 C 19 12 17 22 12 23 C 10 23 7 19 7 18 C 7 18 10 18 10 18 C 10 18 11 20 12 20 C 13 20 14 18 14 18 C 12 19 2 17 1 12 C 1 10 5 7 6 7 C 6 7 6 10 6 10 C 6 10 4 11 4 12 C 4 13 6 14 6 14 M 15 15 C 16 13 16 11 15 9 C 13 8 11 8 9 9 C 8 11 8 13 9 15 C 11 16 13 16 15 15'/></svg>");
 }
+
 
 .main {margin-left: 200px; padding: 10px;}
 
@@ -47,8 +50,7 @@ flex-direction: column;
   content: "";
   position: absolute;
   inset: -40%;
-  background-image:
-  url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23ffffff14' d='M2 7 4 6 4 16 12 20 18 17 10 13 10 10 12 11 12 12 22 17 12 22 2 17 2 7M6 5 8 4 8 14 14 17 12 18 6 15 6 5M10 3 12 2 22 7 22 10 20 9 20 8 12 4 12 7 22 12 22 15 20 14 20 13 10 8 10 3'/></svg>");
+  background-image: var(--svgLogo);
   background-repeat: repeat;
   background-size: 60px 60px;
   opacity: 0.5;
@@ -95,3 +97,55 @@ flex-direction: column;
 }
 
 .footer div { text-align: left;}
+
+
+
+
+
+#tentang {
+    position: relative;
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    transition: all 0.5s ease-in-out;
+
+        background-image:
+        var(--svgLogo),
+        var(--svgLogo),
+        var(--svgLogo);
+
+
+    background-attachment: fixed, fixed, fixed;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-size: 80px 80px, 150px 150px, 300px 300px;
+    background-position: 20% 10%, 70% 50%, 40% 90%;
+}
+
+
+#tentang .card {background: transparent;}
+#tentang .card:hover {animation: none;}
+
+#footer-artikel {
+    color:white;
+    position: relative;
+    overflow: hidden;
+    pointer-events: none;
+
+    background-image:
+        var(--svgLogo),
+        var(--svgLogo),
+        var(--svgLogo),
+        linear-gradient(var(--pColor), var(--pColor), var(--pDarkColor));
+
+
+    background-repeat: repeat-x, repeat-x, repeat-x, no-repeat;
+    background-size: 250px 60px, 600px 140px, 400px 100px, cover;
+    background-position: 0 1%, 0 45%, 0 85%, 0 0;
+    animation: awanBerjalanSerempak 60s linear infinite;
+    min-height: 250px;
+}
+
+@keyframes awanBerjalanSerempak {
+    from { background-position: 0 1%, 0 45%, 0 85%, 0 0; }
+    to { background-position: 1250px 1%, 1200px 45%, 1200px 85%, 0 0;  }
+}

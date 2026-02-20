@@ -115,9 +115,6 @@ log(loginstatus)
   } else {
     out+=`
 
-    <button onclick="switchStyleSheet('style-tools.css');" > <img data-src="code/20"> tools</button>
-    <button onclick="switchStyleSheet('style-admin.css');" > <img data-src="code/20"> admin</button>
-    <button onclick="switchStyleSheet('style-web.css');" > <img data-src="code/20"> web</button>
 
     <button id="appBtn" ><img data-src="menu/20"> </button>
     <button onclick="login.controller.signform()" > <img data-src="user/20"> Sign in</button>
@@ -177,19 +174,53 @@ if (profileBtn && profilePanel) {
 
   var grid = document.getElementById('appGrid');
 
-  apps.forEach(app=>{
-    var el = document.createElement('div');
+//   apps.forEach(app=>{
+//     var el = document.createElement('div');
+//     el.className = 'app-item';
+//     el.innerHTML = `
+//       <div class="app-icon"><img data-src="${app.icon}"></div>
+//       <div class="app-name">${app.name}</div>
+//     `;
+//     el.onclick = ()=>
+//
+// if (app.url){
+//     navigate(app.url);
+//     // window.open(app.url,'_blank');
+//     grid.appendChild(el);
+// }
+// if  (app.modal){
+// d.modal(app.url)
+// window[app.url];
+//
+// }
+//
+//   });
+
+
+
+apps.forEach(app => {
+     var el = document.createElement('div');
     el.className = 'app-item';
     el.innerHTML = `
-      <div class="app-icon"><img data-src="${app.icon}"></div>
+      <div class="app-icon"><img data-src="${app.icon}" ></div>
       <div class="app-name">${app.name}</div>
     `;
-    el.onclick = ()=>
 
-    navigate(app.url);
-    // window.open(app.url,'_blank');
+    el.onclick = () => {
+        if (app.url && !app.modal) {
+            navigate(app.url);
+        } else if (app.modal) {
+            // d.modal(app.modal);
+            // window[app.modal]('/al/templates/style-catalog.css');
+            const [apps, func, param] = app.modal.split("/");
+            window[apps].controller[func](param)
+        }
+    };
+
     grid.appendChild(el);
-  });
+});
+
+
 
     var panel = document.getElementById('profilePanel');
 

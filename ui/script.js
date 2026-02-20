@@ -32,7 +32,6 @@ navigate=function(path) {
 
 path=function(ids) {
 
-  alert(ids)
   log(ids)
   // const [app, func, param] = ids.split("/");
   // window[app].controller[func](param)
