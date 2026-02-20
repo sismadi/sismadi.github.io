@@ -114,8 +114,13 @@ log(loginstatus)
 
   } else {
     out+=`
+
+    <button onclick="switchStyleSheet('style-tools.css');" > <img data-src="code/20"> tools</button>
+    <button onclick="switchStyleSheet('style-admin.css');" > <img data-src="code/20"> admin</button>
+    <button onclick="switchStyleSheet('style-web.css');" > <img data-src="code/20"> web</button>
+
     <button id="appBtn" ><img data-src="menu/20"> </button>
-    <button onclick="login.controller.signform()" > <img data-src="person/20"> Sign in</button>
+    <button onclick="login.controller.signform()" > <img data-src="user/20"> Sign in</button>
     <button onclick="login.controller.regform()" > <img data-src="pen/20"> Sign up</button>
 `;
 

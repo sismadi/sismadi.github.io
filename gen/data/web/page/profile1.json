@@ -1,0 +1,81 @@
+{
+  "data": [
+    {
+      "section": "header",
+      "caption": "profile",
+      "content": {
+        "nama": "Wawan Sismadi",
+        "icon": "ws/150x150/skyblue",
+        "avatar": "data/asset/me.jpg",
+        "tagline": "Arsitek Solusi Digital & Digital Asset Provider",
+        "deskripsi": "Sismadi menciptakan sistem yang menggerakkan operasional bisnis—dari manajemen gudang hingga akurasi laporan keuangan—memastikan setiap baris kode bekerja dengan setia untuk masa depan Anda.",
+        "cta": [
+          { "text": "Eksplorasi Produk", "link": "#dashboard", "icon": "code/32x32" },
+          { "text": "Jalin Kerjasama", "link": "https://wa.me/xxx", "icon": "whatsapp/32x32" }
+        ]
+      }
+    },
+
+    {
+      "section": "stats",
+      "caption": "Visi & Keahlian",
+      "content": [
+        { "icon": "edu/150", "title": "Akademik" },
+        { "icon": "setting/150", "title": "Praktisi" },
+        { "icon": "setting/150", "title": "publik Sektor" },
+        { "icon": "person/150", "title": "Personal" }
+      ]
+    },
+
+
+    {
+      "section": "stats",
+      "content": [
+        { "icon": "edu/150", "title": "Academic Summary", "desc": "Dosen Informatika dengan pengalaman mengajar dan meneliti di bidang rekayasa perangkat lunak dan pengembangan aplikasi web. Aktif dalam penulisan buku, publikasi ilmiah, serta pengembangan materi ajar berbasis praktik industri." }
+      ]
+    },
+
+    {
+      "section": "table",
+      "caption": "Daftar Rilis Produk",
+      "content": [
+        { "Kursus": "Sistem POS Terintegrasi", "Status": "Baru", "Tanggal": "Februari 2026" },
+        { "Kursus": "Dashboard SPA React", "Status": "Terbaru", "Tanggal": "Februari 2026" },
+        { "Kursus": "Icon Pack Series 01", "Status": "Update", "Tanggal": "Januari 2026" }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "Daftar Rilis Produk",
+      "content": [
+        { "Kursus": "Sistem POS Terintegrasi", "Status": "Baru", "Tanggal": "Februari 2026" },
+        { "Kursus": "Dashboard SPA React", "Status": "Terbaru", "Tanggal": "Februari 2026" },
+        { "Kursus": "Icon Pack Series 01", "Status": "Update", "Tanggal": "Januari 2026" }
+      ]
+    },
+    {
+      "section": "table",
+      "caption": "Daftar Rilis Produk",
+      "content": [
+        { "Kursus": "Sistem POS Terintegrasi", "Status": "Baru", "Tanggal": "Februari 2026" },
+        { "Kursus": "Dashboard SPA React", "Status": "Terbaru", "Tanggal": "Februari 2026" },
+        { "Kursus": "Icon Pack Series 01", "Status": "Update", "Tanggal": "Januari 2026" }
+      ]
+    },
+
+
+    {
+      "section": "stats",
+      "content": [
+        { "icon": "edu/150", "title": "Software Engineering"},
+        { "icon": "edu/150", "title": "Web Engineering"},
+        { "icon": "edu/150", "title": "Framework Architecture (MVC)"},
+        { "icon": "edu/150", "title": "Information Systems"}
+      ]
+    }
+
+
+
+
+  ]
+}

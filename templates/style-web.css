@@ -1,0 +1,16 @@
+
+.menu{ width: 50px; }
+.main{ margin-left: 50px;}
+
+.sidebar-header{  padding: 20px 0 50px 0;}
+
+.sidebar-footer{  display: none;}
+.footer {  margin-top: 0px;}
+.footer div { text-align: left;}
+
+@media screen and (max-width: 700px) {
+.main {margin-left: 0px;}
+.menu { width: 100%;}
+.sidebar-header{  padding: 0;}
+}
+ 

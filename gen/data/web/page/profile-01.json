@@ -1,0 +1,112 @@
+{
+    "page": "webmaster_pro_academy",
+    "data": [
+        {
+            "section": "header",
+            "content": {
+                "nama": "WebMaster Pro Academy",
+                "tagline": "Ubah Baris Kode Menjadi Karier Masa Depan.",
+                "deskripsi": "Dunia digital berkembang sangat pesat, dan kemampuan membangun website bukan lagi sekadar hobi, melainkan kebutuhan utama di industri modern. WebMaster Pro Academy hadir sebagai jembatan bagi Anda untuk menguasai teknologi frontend dan backend secara komprehensif, mulai dari dasar HTML hingga arsitektur Single Page Application (SPA) yang kompleks. \n\n Kami percaya bahwa belajar pemrograman harus dilakukan dengan praktik langsung. Oleh karena itu, kurikulum kami dirancang berbasis proyek nyata, di mana setiap peserta akan dipandu untuk membangun portofolio profesional yang siap pamer di hadapan perekrut kerja atau klien global.",
+                "cta": [
+                    {
+                        "text": "Daftar Sekarang",
+                        "link": "/page/daftar",
+                        "icon": "check/24x24/green"
+                    },
+                    {
+                        "text": "Tanya Admin",
+                        "link": "/page/kontak",
+                        "icon": "mail/24x24/skyblue"
+                    }
+                ]
+            }
+        },
+        {
+            "section": "stats",
+            "caption": "Fitur Unggulan",
+            "content": [
+                {
+                    "id": 1,
+                    "nama": "Kurikulum Industri",
+                    "isi": "Materi selalu diperbarui sesuai tren teknologi 2026.",
+                    "icon": "code/32x32/var(--pColor)",
+                    "url": "#"
+                },
+                {
+                    "id": 2,
+                    "nama": "Mentor Expert",
+                    "isi": "Belajar langsung dari praktisi yang berpengalaman di bidangnya.",
+                    "icon": "users/32x32/var(--pColor)",
+                    "url": "#"
+                },
+                {
+                    "id": 3,
+                    "nama": "Akses Selamanya",
+                    "isi": "Sekali daftar, Anda bisa mengakses materi dan update modul kapan saja.",
+                    "icon": "book/32x32/var(--pColor)",
+                    "url": "#"
+                }
+            ]
+        },
+        {
+            "section": "progress",
+            "caption": "Status Pengerjaan Modul",
+            "content": [
+                {
+                    "label": "Modul HTML & CSS Dasar",
+                    "percent": 100,
+                    "value": "100%"
+                },
+                {
+                    "label": "JavaScript & Logic Framework",
+                    "percent": 85,
+                    "value": "85%"
+                },
+                {
+                    "label": "Integrasi Database & API",
+                    "percent": 60,
+                    "value": "60%"
+                }
+            ]
+        },
+        {
+            "section": "table",
+            "caption": "Pilihan Paket Kursus",
+            "content": [
+                {
+                    "Paket Kursus": "Basic",
+                    "Durasi Belajar": "4 Minggu",
+                    "Fasilitas": "E-Book & Video",
+                    "Harga": "Rp 499.000"
+                },
+                {
+                    "Paket Kursus": "Professional",
+                    "Durasi Belajar": "12 Minggu",
+                    "Fasilitas": "Mentor & Sertifikat",
+                    "Harga": "Rp 1.499.000"
+                },
+                {
+                    "Paket Kursus": "Bootcamp",
+                    "Durasi Belajar": "24 Minggu",
+                    "Fasilitas": "Penyaluran Kerja",
+                    "Harga": "Rp 4.999.000"
+                }
+            ]
+        },
+        {
+            "section": "btn",
+            "btn": [
+                {
+                    "text": "Daftar Sekarang",
+                    "url": "/page/daftar",
+                    "icon": "check/24x24/white"
+                },
+                {
+                    "text": "Tanya Admin",
+                    "url": "/page/kontak",
+                    "icon": "whatsapp/24x24/green"
+                }
+            ]
+        }
+    ]
+}

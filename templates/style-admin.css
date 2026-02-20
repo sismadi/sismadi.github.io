@@ -1,0 +1,9 @@
+#footer-artikel{
+  display:none;
+}
+
+.sidebar-header{  padding: 20px 0 50px 0;}
+
+@media screen and (max-width: 700px) {
+.sidebar-header{  padding: 0;}
+}

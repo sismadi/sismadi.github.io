@@ -1,0 +1,73 @@
+{
+"page": "home",
+"data": [
+{
+"section": "header",
+"content": {
+  "icon": "kupat/150/green-yellow",
+  "icon1": "kupat/150/#a7c957-#5e7e13",
+  "icon2": "kupat/100/green-yellow",
+  "icon3": "kupat/100/green",
+"nama": "Wawan Sismadi",
+"tagline": "Sentral Ekosistem Digital",
+"deskripsi": "Selamat datang di gerbang utama ekosistem digital Wawan Sismadi, S.Kom., M.Kom.\nSebagai seorang Arsitek Solusi Digital sekaligus Dosen Tetap di Universitas IPWIJA, narasi di halaman ini menyatukan visi teknologi dengan dedikasi akademik.\n\nDi sini, Anda akan menemukan titik temu antara pengalaman mendalam sebagai Konsultan Individual di Kementerian PUPR dengan gairah dalam mendidik generasi mendatang. Halaman ini dirancang untuk memandu Anda mengeksplorasi empat pilar utama: solusi aplikasi bisnis (Public Sector), perangkat pengembangan modern (Web Developer), kontribusi riset ilmiah (Dosen), hingga pemikiran filosofis mengenai kemanusiaan dan teknologi (Personal).",
+"cta": [
+{
+"text": "Eksplorasi Pilar",
+"link": "#pilar",
+"icon": "menu/24"
+}
+]
+}
+},
+{
+"section": "stats",
+"caption": "Pilar Utama & Pengalaman",
+"content": [
+{
+"id": 1,
+"nama": "Public Sector",
+"isi": "Konsultan Individual di Kementerian PUPR untuk solusi aplikasi bisnis.",
+"icon": "setting/32x32/var(--pColor)",
+"url": "#public-sector"
+},
+{
+"id": 2,
+"nama": "Web Developer",
+"isi": "Pengembangan perangkat modern dengan standar industri terkini.",
+"icon": "code/32x32/var(--pColor)",
+"url": "#developer"
+},
+{
+"id": 3,
+"nama": "Dosen Tetap",
+"isi": "Dedikasi akademik dan kontribusi riset ilmiah di Universitas IPWIJA.",
+"icon": "edu/32x32/var(--pColor)",
+"url": "#dosen"
+},
+{
+"id": 4,
+"nama": "Personal",
+"isi": "Pemikiran filosofis mengenai kemanusiaan dan teknologi.",
+"icon": "user/32x32/var(--pColor)",
+"url": "#personal"
+}
+]
+},
+{
+"section": "btn",
+"btn": [
+{
+"text": "Hubungi Melalui WhatsApp",
+"url": "[https://wa.me/yourlink]()",
+"icon": "whatsapp/24"
+},
+{
+"text": "Lihat Portofolio",
+"url": "/portfolio",
+"icon": "search/24"
+}
+]
+}
+]
+}

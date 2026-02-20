@@ -1,0 +1,41 @@
+.main{ width: 80%; margin : 50px auto;}
+
+.menu{  display: none;}
+
+.sidebar-header{  padding: 20px 0 50px 0;}
+.footer {  margin-top: 0px;}
+.footer div { text-align: left;}
+
+#pattern-layer {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    z-index: -1;
+    pointer-events: none;
+    transform: rotate(-18deg);
+    animation: menuPatternMove 50s linear infinite;
+
+    /* Properti Gabungan */
+    background-color: var(--pColor);
+    background-image:
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23ffffff14' d='M2 7 4 6 4 16 12 20 18 17 10 13 10 10 12 11 12 12 22 17 12 22 2 17 2 7M6 5 8 4 8 14 14 17 12 18 6 15 6 5M10 3 12 2 22 7 22 10 20 9 20 8 12 4 12 7 22 12 22 15 20 14 20 13 10 8 10 3'/></svg>"),
+        linear-gradient(var(--pColor), var(--pColor), var(--pDarkColor));
+
+    background-repeat: repeat, no-repeat;
+    background-size: 60px 60px, cover;
+    background-position: center, center;
+
+    box-shadow: 0 0 5px var(--pLightColor);
+}
+
+@keyframes menuPatternMove {
+    from { background-position: 0 300px; }
+    to { background-position: 200px -200px; }
+}
+
+@media screen and (max-width: 700px) {
+  .main{ width: 100%; margin : 50px auto;}
+
+}

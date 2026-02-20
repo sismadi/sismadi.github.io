@@ -1,0 +1,59 @@
+{"data":[
+  {
+    "section": "header",
+    "caption": "",
+    "content": {
+      "nama": "Marhaban Ya Ramadhan",
+      "icon": "kupat/150/green-yellow",
+      "icon1": "kupat/150/#a7c957-#5e7e13",
+      "icon2": "kupat/100/green-yellow",
+      "icon3": "kupat/100/green",
+      "tagline": "أللهمَّ سَلِّمْنِي مِنْ رَمَضَانَ، وَسَلِّمْ رَمَضَانَ لِي، وَتَسَلَّمْهُ مِنِّي مُتَقَبَّلًا",
+      "deskripsi": "Ya Allah, sampaikan aku dengan selamat menuju bulan Ramadan. Sampaikanlah Ramadhan kepadaku, serta terimalah bulan Ramadan tersebut dari kami"
+    }
+  },
+
+  {
+    "section": "stats",
+    "caption": "Statistik Utama",
+    "content": [
+      { "id": 2, "nama": "Academic & Teaching", "isi": "Dosen Informatika, peneliti, dan penulis. Untuk kebutuhan akademik, riset, dan institusi pendidikan.", "icon": "edu/150x150", "url": "page/web/kursus" },
+      { "id": 2, "nama": "Public Sector Consulting", "isi": "Konsultan IT individu untuk instansi pemerintah dan proyek sistem informasi publik.", "icon": "setting/150x150", "url": "page/web/kursus" },
+      { "id": 3, "nama": "Web Development & IT", "isi": "Praktisi pengembangan web dan rekayasa perangkat lunak untuk industri teknologi.", "icon": "code/150x150", "url": "page/web/kuis" },
+      { "id": 4, "nama": "Personal Profile", "isi": "Profil manusia di balik peran profesional: nilai hidup, proses belajar, dan komunitas.", "icon": "person/150x150", "url": "page/web/sertifikat" }
+    ]
+  },
+
+
+  {
+    "section": "stats",
+    "caption": "Statistik Utama",
+    "content": [
+      { "id": 2, "nama": "ORCID","icon": "orcid/150" },
+      { "id": 2, "nama": "Sinta","icon": "edu/150" },
+      { "id": 2, "nama": "Linkedin","icon": "linkedin/150/blue" }
+    ]
+  },
+
+  {
+    "section": "stats",
+    "caption": "Statistik Utama",
+    "content": [
+      { "id": 2, "nama": "GitHub","icon": "github/150/black" },
+      { "id": 2, "nama": "Google Dev","icon": "code/150" },
+      { "id": 2, "nama": "Credly","icon": "credly/150/orange" }
+    ]
+  },
+
+
+
+  {
+    "section": "stats",
+    "caption": "Services",
+    "content": [
+      { "title": "SVG", "desc": "Belajar React, Vue, Node.js dari nol sampai siap kerja.", "icon": "geo/150x150" },
+      { "title": "Mobile App", "desc": "Bangun aplikasi Android & iOS dengan Flutter & React Native.", "icon": "android/150x150" }
+    ]
+  }
+]
+}

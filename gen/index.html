@@ -33,113 +33,81 @@
 <!-- TYPE BELOW IS PROBABLY: "website" or "article" or look on https://ogp.me/#types -->
 <meta property="og:type" content="website"/>
 
-<title>Sismadi</title>
+<title>Wawan Sismadi</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" href="favicon.png">
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path id='pathws' d='M 6 14 C 5 12 7 2 12 1 C 14 1 17 5 17 6 C 17 6 14 6 14 6 C 14 6 13 4 12 4 C 11 4 10 6 10 6 C 12 5 22 7 23 12 C 23 14 19 17 18 17 C 18 17 18 14 18 14 C 18 14 20 13 20 12 C 20 11 18 10 18 10 C 19 12 17 22 12 23 C 10 23 7 19 7 18 C 7 18 10 18 10 18 C 10 18 11 20 12 20 C 13 20 14 18 14 18 C 12 19 2 17 1 12 C 1 10 5 7 6 7 C 6 7 6 10 6 10 C 6 10 4 11 4 12 C 4 13 6 14 6 14 M 15 15 C 16 13 16 11 15 9 C 13 8 11 8 9 9 C 8 11 8 13 9 15 C 11 16 13 16 15 15' /></svg>" type="image/svg+xml">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path id='pathws' d='M2 7 4 6 4 16 12 20 18 17 10 13 10 10 12 11 12 12 22 17 12 22 2 17 2 7M6 5 8 4 8 14 14 17 12 18 6 15 6 5M10 3 12 2 22 7 22 10 20 9 20 8 12 4 12 7 22 12 22 15 20 14 20 13 10 8 10 3' /></svg>" type="image/svg+xml">
+
 
 
 <link rel="stylesheet" type="text/css" href="/al/svg/style.css" >
+
 <link rel="stylesheet" type="text/css" href="/al/donat/donat.css" >
 <link rel="stylesheet" type="text/css" href="/al/donat/tabs.css" >
+
 <link rel="stylesheet" type="text/css" href="/al/ui/login.css" >
 
 <link rel="stylesheet" type="text/css" href="/al/templates/style.css">
 <link rel="stylesheet" type="text/css" href="/al/templates/parallax.css">
-<link id="main-style" rel="stylesheet" type="text/css" href="/al/templates/style-sismadi.css">
+<!-- <link id="main-style" rel="stylesheet" type="text/css" href="/al/templates/style-sismadi.css"> -->
 
 <link rel="stylesheet" type="text/css" href="style.css">
-
 
 </head>
 <body>
 
-<div id="pattern-layer" class=""></div>
+
 <div id="modal" class="hide depan"></div>
 <div id="bawah"  class="toast hide" > info </div>
 
 <div id="menu" class="menu" tabindex="0" >
 <div class="sidebar-header">
 <div class="logo hide">
-<img data-src="sismadi/100x100" alt="Donat">
+<img data-src="ws/100" alt="Donat">
 </div>
+<p>Wawan Sismadi</p>
 </div>
 
 
 <ul id='leftmenu'>
-<li data-info="web/page/home"> <img data-src="house/32x32"> Menu</li>
-<li data-info="web/page/dashboard" class="item" ><img data-src="menu/32x32"> Dashboard</li>
-<li data-info="web/page/profile"> <img data-src="user/32x32"> Profile</li>
+<li data-info="web/page/home"> <img data-src="house/32x32" alt="Donat"> Home</li>
+<li data-info="web/page/dashboard" class="item" ><img data-src="menu/32x32" alt="Donat"> Solutions</li>
+<li data-info="web/page/profile"> <img data-src="user/32x32" alt="Donat"> Resume</li>
 </ul>
 
 <div class="sidebar-footer">
-© 2026 sismadi<br>
+© 2026 Wawan Sismadi<br>
 Web Developer
 </div>
-
 </div>
 
 <div id="panel-container"></div>
-<div id="main" class="main shadow">
+<div id="main" class="main">
 <div id="header" class="header" ></div>
 <div id="topmenu" class="topmenu sticky-top"> topmenu </div>
 
 <main><div id="content" class="content" ></div></main>
-<div id="footer" class="footer" >
 
-  <div id="footer-artikel" class="row">
-
-  <div class="col-1-3">
-  <div class="artikel">
-  <img data-src="sismadi/50">
-<br>
-  <strong>Sismadi </strong><br>
-  +6287885073237 <br>
-  wawan@sismadi.com <br>
-  Jakarta <br>
-  Dikelola oleh:<br>
-  DonatJS <br>
-  <img data-src="geo/32">
-  <img data-src="linkedin/32/blue">
-  <img data-src="facebook/32/blue">
-  <img data-src="x/32/blax">
-  <img data-src="github/32/black">
-  <img data-src="credly/32/orange">
-
+<div id="json-sidepanel" class="sidepanel shadow">
+    <div class="sidepanel-header">
+        <h3>JSON Live Editor</h3>
+        <button onclick="toggleSidepanel()">×</button>
     </div>
-  </div>
-
-  <div class="col-1-3">
-    <div class="artikel">
-      <h3>Pranala</h3>
-      <ul>
-      <li>ORCID</li>
-      <li>Sinta</li>
-      <li>Linkedin</li>
-      <li>GitHub</li>
-      <li>Google Dev</li>
-      <li>Credly</li>
-      </ul>
+    <textarea id="json-input" placeholder="Paste JSON anda di sini..."></textarea>
+    <div class="sidepanel-footer">
+        <button onclick="applyJSON()" class="button-primary">Apply Changes</button>
+        <p id="json-status"></p>
     </div>
-  </div>
-
-  <div class="col-1-3">
-    <div class="artikel">
-      <h3>Informasi</h3>
-      <ul>
-      <li>Academic &amp; Teaching</li>
-      <li>Public Sector Consulting</li>
-      <li>Web Development &amp; IT</li>
-      <li>Personal Profile</li>
-      </ul>
-    </div>
-  </div>
-
-  </div>
-  Made with <img data-src="donat/32x32" alt="Donat"> by donat.id
 </div>
 
+<div class="floating-btn" onclick="toggleSidepanel()">
+    <img data-src="code/24x24/white">
+</div>
+
+
+
+<div id="footer" class="footer" >Made with <img data-src="donat/32x32" alt="Donat"> by donat.id</div>
 </div>
 
 <script type="text/javascript" src="config.js"></script>
@@ -182,8 +150,14 @@ window.addEventListener('popstate', () => {
 </script>
 
 <script>
+    // 1. Memuat gabungan data JSON (data1.json, data2.json, dll)
+    // loadSVGLibraries(['data1.json', 'data2.json']);
     loadSVGLibraries(['/al/svg/data.json']);
+
+    // 2. Menambah icon path tunggal secara manual via JS
     addIcon('custom-star', "M 12 2 L 15 9 L 22 9 L 16 14 L 18 21 L 12 17 L 6 21 L 8 14 L 2 9 L 9 9 Z");
+
+    // 3. Menambah icon jamak (composite) secara manual via JS
     addIcon('double-box', {
         viewBox: "0 0 24 24",
         layers: [
@@ -191,27 +165,11 @@ window.addEventListener('popstate', () => {
             { path: "M 2 2 L 10 2 L 10 10 L 2 10 Z", pos: "12,12", main: true }
         ]
     });
-  </script>
-
-  <script>
-
-  /**
-  * Mengganti file CSS utama
-  * @param {string} fileName - Nama file CSS baru (misal: 'style-full.css')
-  */
- function switchStyleSheet(fileName) {
-     const styleLink = document.getElementById('main-style');
-     if (styleLink) {
-         styleLink.setAttribute('href', fileName);
-     }
- }
-
- // switchStyleSheet('style-tools.css');
- // switchStyleSheet('style-blog.css');
-
-  </script>
+</script>
+<script>
 
 
+</script>
 
 
 

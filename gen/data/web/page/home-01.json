@@ -1,0 +1,35 @@
+{"data":[
+  {
+    "section": "header",
+    "caption": "",
+    "content": {
+      "nama": "LMSs",
+      "icon": "?medsos/150x150/skyblue/0.1",
+      "tagline": "Fullstack Developer • AI Engineer • Data Scientist",
+      "deskripsi": "Akselerasi karier teknologi Anda dengan kurikulum berbasis industri yang dirancang oleh praktisi berpengalaman.",
+      "cta": [
+        { "text": "Lihat Kursus", "link": "#dashboard", "icon": "?code/32x32" },
+        { "text": "Konsultasi", "link": "https://wa.me/xxx", "icon": "?whatsapp/32x32" }
+      ]
+    }
+  },
+
+  {
+    "section": "stats",
+    "caption": "Statistik Utama",
+    "content": [
+      { "id": 2, "nama": "Kursus", "isi": "128", "icon": "?setting/150x150", "url": "page/web/kursus" },
+      { "id": 3, "nama": "Kuis", "isi": "128", "icon": "?setting/150x150", "url": "page/web/kuis" },
+      { "id": 4, "nama": "Sertifikat", "isi": "128", "icon": "?setting/150x150", "url": "page/web/sertifikat" }
+    ]
+  },
+  {
+    "section": "stats",
+    "caption": "Services",
+    "content": [
+      { "title": "SVG", "desc": "Belajar React, Vue, Node.js dari nol sampai siap kerja.", "icon": "?geo/150x150" },
+      { "title": "Mobile App", "desc": "Bangun aplikasi Android & iOS dengan Flutter & React Native.", "icon": "?mobile/150x150" }
+    ]
+  }
+]
+}

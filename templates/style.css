@@ -1,0 +1,97 @@
+:root {
+--pColor: #6a994e;
+--pLightColor: #a7c957;
+--pDarkColor: #386641 ;
+
+--pTextColor: #000000;
+--pButtonColor: #fff;
+--pPage: #f2f2f2;
+--gInput: #fff;
+}
+
+.main {margin-left: 200px; padding: 10px;}
+
+.menu {
+  color: white;
+margin: 0;
+height: 100%;
+padding: 0;
+width: 200px;
+position: fixed;
+overflow: hidden;
+z-index: 10;
+box-shadow: 0 0 5px var(--pLightColor);
+background-size: 40px, cover;
+background-color:var(--pColor);
+background-image: linear-gradient(var(--pColor), var(--pColor), var(--pDarkColor));
+background-repeat: repeat, no-repeat;
+background-position: center, center;
+
+display: flex;
+flex-direction: column;
+
+}
+.menu .sidebar-header p { padding: 5px 10px; text-align: center; /* Koreksi dari 'align:center' */}
+.menu .sidebar-footer { padding: 20px 10px; margin-top: auto;  opacity: 0.7;}
+
+.menu .logo {display: block; text-align: center; width: 100%; }
+
+.menu ul {padding: 0; margin: 0; position: relative; }
+
+.menu li {  padding: 10px; cursor: pointer; display: flex; align-items: center; gap: 8px;}
+
+.menu li.active { background-color: var(--pLightColor);}
+.menu li:hover:not(.active) { background-color: var(--pLightColor); }
+
+.menu::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background-image:
+  url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23ffffff14' d='M2 7 4 6 4 16 12 20 18 17 10 13 10 10 12 11 12 12 22 17 12 22 2 17 2 7M6 5 8 4 8 14 14 17 12 18 6 15 6 5M10 3 12 2 22 7 22 10 20 9 20 8 12 4 12 7 22 12 22 15 20 14 20 13 10 8 10 3'/></svg>");
+  background-repeat: repeat;
+  background-size: 60px 60px;
+  opacity: 0.5;
+  transform: rotate(-18deg);
+  animation: menuPatternMove 50s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.menu > * { position: relative; z-index: 1;}
+@keyframes menuPatternMove {from { background-position: 0 300px; } to {background-position: 200px -300px; }
+}
+
+.footer{ text-align: center; margin-top: 50px;}
+
+@media screen and (max-width: 700px) {
+.main {margin-left: 0px; padding: 60px 10px;}
+.menu { display: flex; justify-content: flex-end;  align-items: center; width: 100%;  height: auto; position: fixed; }
+.menu .logo { width: auto; display: flex; align-items: center;}
+.menu .logo svg { width: 32px; height: 32px; margin-left: 10px;}
+.menu ul { display: flex; margin-left: auto; list-style: none;}
+.menu li { display: flex; justify-content: center; align-items: center; padding: 10px 15px; cursor: pointer; transition: all 0.3s ease;}
+.menu .sidebar-footer { display: none; }
+.menu .sidebar-header p { display: none; }
+
+.menu { flex-direction: row; align-items: center; justify-content: space-between; }
+}
+
+@media screen and (max-width: 450px) {
+.main { padding-top: 10px; padding-bottom: 70px;  }
+.menu { z-index: 100; overflow: visible;  bottom:0; position: fixed;  width: 100%; background: var(--pColor); }
+.menu .logo {display: none;}
+.menu ul {display: flex; padding: 0;margin: 0;list-style: none; width: 100%;}
+.menu ul li { display: flex; width: 33.3%;flex: 1; justify-content: center; }
+.menu a, .nav-item  { width: 100%; display: inline-block; padding: 20px 10px; }
+.menu a i, .nav-item i, .menu svg { margin: 0 auto 4px auto; display: block; font-size: 20px;  }
+
+.item svg { display:flex;!important; }
+.item svg { position:fixed; border-radius:50%; border: 5px solid white; }
+.item svg {  width: 50px; height: 50px; bottom: 45px; padding: 5px; background-color: var(--pColor); }
+
+.footer {  margin-bottom: 30px;}
+.menu .sidebar-header { display: none; }
+}
+
+.footer div { text-align: left;}

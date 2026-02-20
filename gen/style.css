@@ -1,0 +1,94 @@
+.menu::before {
+  background-image:
+  url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23ffffff14' d='M 6 14 C 5 12 7 2 12 1 C 14 1 17 5 17 6 C 17 6 14 6 14 6 C 14 6 13 4 12 4 C 11 4 10 6 10 6 C 12 5 22 7 23 12 C 23 14 19 17 18 17 C 18 17 18 14 18 14 C 18 14 20 13 20 12 C 20 11 18 10 18 10 C 19 12 17 22 12 23 C 10 23 7 19 7 18 C 7 18 10 18 10 18 C 10 18 11 20 12 20 C 13 20 14 18 14 18 C 12 19 2 17 1 12 C 1 10 5 7 6 7 C 6 7 6 10 6 10 C 6 10 4 11 4 12 C 4 13 6 14 6 14 M 15 15 C 16 13 16 11 15 9 C 13 8 11 8 9 9 C 8 11 8 13 9 15 C 11 16 13 16 15 15'/></svg>");
+}
+
+.pdf-wrapper {
+    position: relative;
+    width: 100%;
+    /* Menggunakan vh (viewport height) agar pas di layar HP maupun Desktop */
+    height: 80vh;
+    border: 1px solid #ccc;
+    overflow: hidden;
+  }
+
+  .pdf-wrapper embed {
+    width: 100%;
+    height: 100%;
+  }
+
+
+
+
+// parallax
+
+.hero-container {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallax-layer {
+  position: absolute;
+  will-change: transform; /* Optimasi performa */
+}
+
+/* Contoh posisi awal masing-masing ikon */
+.icon-wa { top: 20%; left: 10%; z-index: 1000; }
+.icon-fb { top: 10%; left: 30%; z-index: 2000; }
+.icon-tw { top: 40%; left: 5%; z-index: 1000; }
+
+
+.svg-medsos1 paths {
+fill:none; stroke:black;
+}
+
+
+
+
+
+.sidepanel {
+    position: fixed;
+    top: 0;
+    left: -450px; /* Sembunyi di kiri */
+    width: 400px;
+    height: 100%;
+    background: #f8f9fa;
+    z-index: 9999;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid var(--pColor);
+}
+
+.sidepanel.open {
+    left: 0;
+}
+
+.sidepanel-header { padding: 8px; background: var(--pLightColor); color: white; display: flex; justify-content: space-between; }
+
+#json-input {
+    flex-grow: 1;
+    width: 100%;
+    /* font-family: monospace; */
+    padding: 10px;
+    border: none;
+    resize: none;
+    /* background: #272822;
+    color: #f8f8f2; */
+}
+
+.floating-btn {
+  z-index: 99;
+  position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--pColor);
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}

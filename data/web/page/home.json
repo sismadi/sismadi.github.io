@@ -27,7 +27,7 @@
     },
     {
       "section": "stats",
-      "caption": "Tentang Kami",
+      "caption": "tentang",
       "content": [
         {"icon": "sismadi/150", "title": "Filosofi", "desc": "Teknologi yang baik adalah yang tidak terlihat, namun membuat segalanya terasa mungkin." }
       ]
