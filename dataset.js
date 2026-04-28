@@ -29,7 +29,7 @@ const pages = {
                     linkTarget: 'snippets'
                 },
                 {
-                    icon: 'di-refresh',
+                    icon: 'di-pen',
                     title: 'Changelog',
                     content: 'Rekam jejak iterasi setiap framework. Label jelas: <strong>[STABLE]</strong>, <strong>[BETA]</strong>, <strong>[DEPRECATED]</strong>. Tidak ada yang tiba-tiba naik ke produksi.',
                     linkText: 'Lihat Changelog',
