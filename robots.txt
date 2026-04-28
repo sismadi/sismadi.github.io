@@ -1,0 +1,36 @@
+# ========================================
+# ROBOTS.TXT - Sismadi Lab
+# Domain: https://sismadi.com
+# Type: SPA with Query-Based Routing
+# ========================================
+
+User-agent: *
+Allow: /
+
+# ✅ Allow static assets for proper rendering
+Allow: /*.js
+Allow: /*.css
+Allow: /*.svg
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.webp
+Allow: /*.gif
+
+# ✅ Allow query-based routing for SPA navigation
+Allow: /?*
+
+# ❌ Block sensitive/internal directories
+Disallow: /private/
+Disallow: /config/
+Disallow: /backup/
+Disallow: /temp/
+Disallow: /node_modules/
+Disallow: /*.log
+Disallow: /*.env
+
+# ⏱ Respectful crawling
+Crawl-delay: 1
+
+# 🗺️ Sitemap location
+Sitemap: https://sismadi.com/sitemap.xml

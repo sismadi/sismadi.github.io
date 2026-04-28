@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://sismadi.com/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.00</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://sismadi.com/?home"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sismadi.com/"/>
+  </url>
+
+  <url>
+    <loc>https://sismadi.com/?home</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://sismadi.com/?home"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sismadi.com/"/>
+  </url>
+
+  <url>
+    <loc>https://sismadi.com/?ekosistem</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://sismadi.com/?ekosistem"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sismadi.com/?ekosistem"/>
+  </url>
+
+  <url>
+    <loc>https://sismadi.com/?snippets</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://sismadi.com/?snippets"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sismadi.com/?snippets"/>
+  </url>
+
+  <url>
+    <loc>https://sismadi.com/?changelog</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://sismadi.com/?changelog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sismadi.com/?changelog"/>
+  </url>
+
+</urlset>
