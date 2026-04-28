@@ -54,7 +54,7 @@ const pages = {
             rightCol: {
                 subtitle: 'Status Saat Ini',
                 lines: [
-                    'table:'
+                    'table:table'
                 ],
                 table: [
                     { 'Framework': 'Ktupad', 'Tipe': 'MVC PHP', 'Status': '[STABLE]', 'HKI': 'EC00201952487' },
@@ -223,7 +223,7 @@ const pages = {
             rightCol: {
                 subtitle: 'Pola yang Konsisten',
                 lines: [
-                    'table:'
+                    'table:table'
                 ],
                 table: [
                     { 'Generasi': 'Ktupad', 'Masalah Lama': 'Tidak ada MVC sederhana', 'Solusi Baru': 'MVC PHP minimal' },
@@ -297,7 +297,7 @@ const pages = {
             rightCol: {
                 subtitle: 'Roadmap',
                 lines: [
-                    'table:'
+                    'table:table'
                 ],
                 table: [
                     { 'Target': 'DonatJS v2.5', 'Eksperimen': 'JSON→PDF pipeline', 'Status': '[WIP]' },
