@@ -54,7 +54,7 @@ const pages = {
             rightCol: {
                 subtitle: 'Status Saat Ini',
                 lines: [
-                    'table:default'
+                    'table:'
                 ],
                 table: [
                     { 'Framework': 'Ktupad', 'Tipe': 'MVC PHP', 'Status': '[STABLE]', 'HKI': 'EC00201952487' },
@@ -70,11 +70,11 @@ const pages = {
             leftCol: {
                 subtitle: 'Stack Lab',
                 lines: [
-                    'skill:PHP / MVC Architecture:80',
-                    'skill:JavaScript / Node (Zero Dependency):85',
-                    'skill:JSON-Driven UI System:80',
-                    'skill:SVG Engineering:85',
-                    'skill:WebAssembly (Research):60'
+                    'skill:80%:PHP / MVC Architecture',
+                    'skill:85%:JavaScript / Node (Zero Dependency)',
+                    'skill:80%:JSON-Driven UI System',
+                    'skill:85%:SVG Engineering',
+                    'skill:50%:WebAssembly (Research)'
                 ]
             },
             rightCol: {
@@ -223,7 +223,7 @@ const pages = {
             rightCol: {
                 subtitle: 'Pola yang Konsisten',
                 lines: [
-                    'table:default'
+                    'table:'
                 ],
                 table: [
                     { 'Generasi': 'Ktupad', 'Masalah Lama': 'Tidak ada MVC sederhana', 'Solusi Baru': 'MVC PHP minimal' },
@@ -297,7 +297,7 @@ const pages = {
             rightCol: {
                 subtitle: 'Roadmap',
                 lines: [
-                    'table:default'
+                    'table:'
                 ],
                 table: [
                     { 'Target': 'DonatJS v2.5', 'Eksperimen': 'JSON→PDF pipeline', 'Status': '[WIP]' },
